@@ -1,9 +1,18 @@
+import Logo from "../../assets/logo.svg";
+import NavbarCart from "../../assets/navbar-cart.svg";
+import NavbarHeart from "../../assets/navbar-heart.svg";
+import NavbarProfile from "../../assets/navbar-profile.svg";
+import NavbarSearch from "../../assets/navbar-search.svg";
+import styles from "./styles.module.css";
+
 export const Navbar = () => {
   return (
-    <div>
-      <div>Logo</div>
+    <div className={styles.navbar}>
+      <div className={styles.logo}>
+        <img src={Logo} alt="" />
+      </div>
 
-      <ul>
+      <ul className={styles.links}>
         <li>
           <a href="#">Home</a>
         </li>
@@ -18,7 +27,28 @@ export const Navbar = () => {
         </li>
       </ul>
 
-      <div></div>
+      <ul className={styles.icons}>
+        <li>
+          <a href="#">
+            <img src={NavbarProfile} alt="" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src={NavbarSearch} alt="" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src={NavbarHeart} alt="" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src={NavbarCart} alt="" />
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };
