@@ -1,0 +1,30 @@
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image {
+    flex-grow: 0;
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+.text {
+
+}
+
+.title {
+    font-weight: 600;
+    font-size: 25px;
+    color: #242424;
+    margin: 0;
+}
+
+.description {
+    color: var(--gray-3);
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+}
