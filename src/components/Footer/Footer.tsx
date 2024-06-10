@@ -51,7 +51,7 @@ export const Footer = () => {
               placeholder="Enter Your Email Address"
               value={email}
               onChange={(e) => handleEmailChange(e.target.value)}
-              error={true}
+              error={error}
               errorMessage={"Invalid email"}
             />
             <Button type="submit">Subscribe</Button>

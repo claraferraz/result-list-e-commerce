@@ -16,7 +16,9 @@ export const TextField = (props: Props) => {
         className={`${styles.input} ${error ? styles.error : ""}`}
         {...rest}
       />
-      {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+      {errorMessage && error && (
+        <p className={styles.errorMessage}>{errorMessage}</p>
+      )}
     </div>
   );
 };
