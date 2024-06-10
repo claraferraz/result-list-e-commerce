@@ -1,0 +1,17 @@
+.button {
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    color: black;
+    text-transform: uppercase;
+    padding: 4px 0;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.button:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
