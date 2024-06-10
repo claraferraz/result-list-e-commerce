@@ -1,5 +1,11 @@
-import "./App.css";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Header } from "./components/Header/Header";
 
 export function App() {
-  return <p>Hello</p>;
+  return (
+    <div>
+      <Navbar />
+      <Header />
+    </div>
+  );
 }
