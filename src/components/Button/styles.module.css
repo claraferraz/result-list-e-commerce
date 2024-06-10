@@ -9,6 +9,7 @@
     padding: 4px 0;
     cursor: pointer;
     transition: .2s ease-in-out;
+    font-size: 14px;
 }
 
 .button:hover {
