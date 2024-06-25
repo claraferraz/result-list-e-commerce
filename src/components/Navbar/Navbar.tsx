@@ -3,6 +3,7 @@ import NavbarCart from "../../assets/navbar-cart.svg";
 import NavbarHeart from "../../assets/navbar-heart.svg";
 import NavbarProfile from "../../assets/navbar-profile.svg";
 import NavbarSearch from "../../assets/navbar-search.svg";
+import { MenuMobile } from "../MenuMobile/MenuMobile";
 import styles from "./styles.module.css";
 
 export const Navbar = () => {
@@ -11,7 +12,7 @@ export const Navbar = () => {
       <div className={styles.logo}>
         <img src={Logo} alt="" />
       </div>
-
+      <MenuMobile />
       <ul className={styles.links}>
         <li>
           <a href="#">Home</a>

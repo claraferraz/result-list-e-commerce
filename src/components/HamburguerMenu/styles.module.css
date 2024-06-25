@@ -1,0 +1,40 @@
+.wrapper {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bars {
+    background-color: var(--black);
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.open {
+    position: relative
+}
+
+.open .bars {
+    background-color: var(--primary);
+    position: absolute;
+    top: 45%;
+}
+
+.open .barOne {
+    transform: rotate(-45deg);
+}
+
+.open .barTwo {
+    transform: rotate(45deg);
+}
+
+.open .barThree {
+    transform: rotate(-45deg);
+}
