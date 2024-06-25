@@ -11,13 +11,23 @@
     display: block;
 }
 
-.input.error {
+.error .input {
     border-color: var(--red);
 }
 
-.errorMessage {
-    margin-top: 2px;
-    margin-bottom: 0;
-    font-size: 12px;
+.success .input {
+    border-color: var(--green);
+}
+
+.error p {
     color: var(--red);
+}
+
+.success p {
+    color: var(--green);
+}
+
+.statusMessageDisplay {
+    margin: 10px 0;
+    font-size: 12px;
 }

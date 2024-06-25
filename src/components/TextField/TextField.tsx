@@ -2,22 +2,25 @@ import styles from "./styles.module.css";
 import { InputHTMLAttributes } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  error?: boolean;
-  errorMessage?: string;
+  status?: string;
+  statusMessage?: string;
 }
 
 export const TextField = (props: Props) => {
-  const { error, errorMessage, ...rest } = props;
+  const { status, statusMessage, ...rest } = props;
+
+  let statusClass = styles.default;
+  if (status === "error") {
+    statusClass = styles.error;
+  } else if (status === "success") {
+    statusClass = styles.success;
+  }
 
   return (
-    <div>
-      <input
-        type="text"
-        className={`${styles.input} ${error ? styles.error : ""}`}
-        {...rest}
-      />
-      {errorMessage && error && (
-        <p className={styles.errorMessage}>{errorMessage}</p>
+    <div className={statusClass}>
+      <input type="text" className={styles.input} {...rest} />
+      {statusMessage && status && (
+        <p className={styles.statusMessageDisplay}>{statusMessage}</p>
       )}
     </div>
   );

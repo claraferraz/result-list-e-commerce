@@ -11,15 +11,18 @@ function isValidEmail(email: string): boolean {
 
 export const Footer = () => {
   const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState<string>("");
+  const [statusMessage, setStatusMessage] = useState<string>("");
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
 
     if (!isValidEmail(value)) {
-      setError(true);
+      setStatus("error");
+      setStatusMessage("Please enter a valid email");
     } else {
-      setError(false);
+      setStatus("success");
+      setStatusMessage("Subscribed!");
     }
   };
 
@@ -51,8 +54,8 @@ export const Footer = () => {
               placeholder="Enter Your Email Address"
               value={email}
               onChange={(e) => handleEmailChange(e.target.value)}
-              error={error}
-              errorMessage={"Invalid email"}
+              status={status}
+              statusMessage={statusMessage}
             />
             <Button type="submit">Subscribe</Button>
           </form>
