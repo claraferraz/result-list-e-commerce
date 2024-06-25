@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import { FooterLinks } from "./FooterLinks";
 import { TextField } from "../TextField/TextField";
 import { Button } from "../Button/Button";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 function isValidEmail(email: string): boolean {
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -14,10 +14,10 @@ export const Footer = () => {
   const [status, setStatus] = useState<string>("");
   const [statusMessage, setStatusMessage] = useState<string>("");
 
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
+  const handleEmailSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    if (!isValidEmail(value)) {
+    if (!isValidEmail(email)) {
       setStatus("error");
       setStatusMessage("Please enter a valid email");
     } else {
@@ -49,12 +49,12 @@ export const Footer = () => {
 
         <div>
           <p className={styles.sectionTitle}>Newsletter</p>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={(e) => handleEmailSubmit(e)}>
             <TextField
               placeholder="Enter Your Email Address"
               value={email}
-              onChange={(e) => handleEmailChange(e.target.value)}
               status={status}
+              onChange={(e) => setEmail(e.target.value)}
               statusMessage={statusMessage}
             />
             <Button type="submit">Subscribe</Button>
