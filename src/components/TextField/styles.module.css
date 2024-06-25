@@ -11,6 +11,14 @@
     display: block;
 }
 
+.default .input {
+    border-bottom: 1px solid black;
+}
+
+.default p {
+    display: none;
+}
+
 .error .input {
     border-color: var(--red);
 }

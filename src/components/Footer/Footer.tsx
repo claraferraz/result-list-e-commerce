@@ -24,6 +24,11 @@ export const Footer = () => {
       setStatus("success");
       setStatusMessage("Subscribed!");
     }
+
+    setTimeout(() => {
+      setStatus("");
+      setStatusMessage("");
+    }, 3000);
   };
 
   return (

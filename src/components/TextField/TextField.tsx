@@ -14,6 +14,8 @@ export const TextField = (props: Props) => {
     statusClass = styles.error;
   } else if (status === "success") {
     statusClass = styles.success;
+  } else if (status === "") {
+    statusClass = styles.default;
   }
 
   return (
