@@ -4,6 +4,9 @@
 }
 
 .circle {
+    position: absolute;
+    right: 24px;
+    top: 24px;
     border-radius: 50%;
     background-color: var(--red);
     width: 48px;
@@ -23,16 +26,15 @@
     background-color: var(--green);
 }
 
-.wrapper:hover .circle,
 .hide {
     display: none;
 }
 
-
-
 .image {}
 
-.text {}
+.text {
+    padding: 16px;
+}
 
 .priceContainer {}
 
