@@ -51,6 +51,11 @@
     width: 202px;
     height: 48px;
     flex-shrink: 0;
+    cursor: pointer;
+}
+
+.productHover button:hover {
+    background-color: var(--light-bg);
 }
 
 .linksDiv {
@@ -68,6 +73,11 @@
 .links {
     display: flex;
     gap: 2px;
+    cursor: pointer;
+}
+
+.links:hover {
+    filter: drop-shadow(1px 1px 12px white);
 }
 
 .wrapper:hover .productHover {
