@@ -1,0 +1,83 @@
+.wrapper {
+    position: relative;
+    background-color: var(--light-bg);
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: var(--red);
+    width: 48px;
+    height: 48px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.discount {
+    background-color: var(--red);
+}
+
+.new {
+    background-color: var(--green);
+}
+
+.wrapper:hover .circle,
+.hide {
+    display: none;
+}
+
+
+
+.image {}
+
+.text {}
+
+.priceContainer {}
+
+.productHover {
+    display: none;
+}
+
+.productHover button {
+    background-color: white;
+    border: none;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 600;
+    width: 202px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.linksDiv {
+    padding: 16;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.links {
+    display: flex;
+    gap: 2px;
+}
+
+.wrapper:hover .productHover {
+    background-color: rgba(58, 58, 58, 0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
