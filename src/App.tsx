@@ -1,7 +1,7 @@
 import { Navbar } from "./components/Navbar/Navbar";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import { FeatureSection } from "./FeatureSection/FeatureSection";
+import { FeatureSection } from "./components/FeatureSection/FeatureSection";
 
 export function App() {
   return (

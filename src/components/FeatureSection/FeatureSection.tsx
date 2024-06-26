@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
-import QualityIcon from "../assets/feature-quality.svg";
-import WarrantyIcon from "../assets/feature-warranty.svg";
-import FreeShippingIcon from "../assets/feature-shipping.svg";
-import SupportIcon from "../assets/feature-support.svg";
-import { Feature } from "../components/Feature/Feature";
+import QualityIcon from "../../assets/feature-quality.svg";
+import WarrantyIcon from "../../assets/feature-warranty.svg";
+import FreeShippingIcon from "../../assets/feature-shipping.svg";
+import SupportIcon from "../../assets/feature-support.svg";
+import { Feature } from "../Feature/Feature";
 
 export const FeatureSection = () => {
   return (
