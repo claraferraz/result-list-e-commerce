@@ -21,6 +21,11 @@ export const ProductCard = ({
 }: Props) => {
   const priceDisplay = (value: number) => value.toLocaleString("pt-BR");
 
+  let originalPriceP = "";
+  if (typeof detail != "number") {
+    originalPriceP = styles.hide;
+  }
+
   return (
     <div className={styles.wrapper}>
       <ProductDetail detail={detail} />
@@ -32,7 +37,7 @@ export const ProductCard = ({
         <p>{description}</p>
         <div className={styles.priceContainer}>
           <h3>Rp {priceDisplay(price)}</h3>
-          <p>Rp {priceDisplay(originalPrice)}</p>
+          <p className={originalPriceP}>Rp {priceDisplay(originalPrice)}</p>
         </div>
       </div>
       <ProductCardHover />

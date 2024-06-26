@@ -1,6 +1,7 @@
 .wrapper {
     position: relative;
     background-color: var(--light-bg);
+    height: 446px;
 }
 
 .circle {
@@ -30,13 +31,46 @@
     display: none;
 }
 
-.image {}
-
 .text {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 8px;
     padding: 16px;
+    padding-bottom: 30px;
 }
 
-.priceContainer {}
+.text h2,
+.priceContainer h3 {
+    margin: 0;
+    font-weight: 600;
+    color: var(--gray-1);
+}
+
+.text h2 {
+    font-size: 24px;
+}
+
+.text p {
+    margin: 0;
+    color: var(--gray-3);
+    font-weight: 500;
+}
+
+.priceContainer {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.priceContainer h2 {
+    font-size: 20px;
+}
+
+.priceContainer p {
+    color: var(--gray-4);
+    text-decoration: line-through;
+}
 
 .productHover {
     display: none;
