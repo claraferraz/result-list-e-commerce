@@ -7,7 +7,6 @@ type Props = {
   title: string;
   description: string;
   price: number;
-  originalPrice: number;
   detail: number | "New" | null;
 };
 
@@ -16,7 +15,6 @@ export const ProductCard = ({
   title,
   description,
   price,
-  originalPrice,
   detail,
 }: Props) => {
   const priceDisplay = (value: number) => value.toLocaleString("pt-BR");
@@ -25,6 +23,8 @@ export const ProductCard = ({
   if (typeof detail != "number") {
     originalPriceP = styles.hide;
   }
+  const calculatedPrice =
+    typeof detail === "number" ? (1 - detail / 100) * price : price;
 
   return (
     <div className={styles.wrapper}>
@@ -36,8 +36,8 @@ export const ProductCard = ({
         <h2>{title}</h2>
         <p>{description}</p>
         <div className={styles.priceContainer}>
-          <h3>Rp {priceDisplay(price)}</h3>
-          <p className={originalPriceP}>Rp {priceDisplay(originalPrice)}</p>
+          <h3>Rp {priceDisplay(calculatedPrice)}</h3>
+          <p className={originalPriceP}>Rp {priceDisplay(price)}</p>
         </div>
       </div>
       <ProductCardHover />
