@@ -1,10 +1,15 @@
 import styles from "./styles.module.css";
-import { ProductCard } from "../ProductCard/ProductCard";
-import image from "../../assets/image-1.png";
 import filterIcon from "../../assets/system-uicons_filtering.svg";
 import { PageButton } from "../PageButton/PageButton";
+import { useState } from "react";
+import { ProductList } from "../../productList";
+import { ProductCard } from "../ProductCard/ProductCard";
 
 export const ProductSection = () => {
+  const [page, setPage] = useState(1);
+  const [numPerPage, setNumPerPage] = useState(8);
+  const [total, setTotal] = useState(32);
+  const current = page;
   return (
     <section className={styles.productSection}>
       <div className={styles.filterBarBg}>
@@ -14,7 +19,9 @@ export const ProductSection = () => {
               <img src={filterIcon} alt="filter icon" />
               Filter
             </button>
-            <p className={styles.pageDescription}>Showing 1-8 of 32 results</p>
+            <p className={styles.pageDescription}>
+              Showing {current}-{current + numPerPage - 1} of {total} results
+            </p>
           </div>
           <div className={styles.resultsNumberInput}>
             <label>
@@ -30,34 +37,15 @@ export const ProductSection = () => {
       </div>
 
       <div className={styles.cardsDisplay}>
-        <ProductCard
-          img={image}
-          title="Syltherine"
-          description="example"
-          price={3500000}
-          detail={30}
-        />
-        <ProductCard
-          img={image}
-          title="Syltherine"
-          description="example"
-          price={3500000}
-          detail={"New"}
-        />
-        <ProductCard
-          img={image}
-          title="Syltherine"
-          description="example"
-          price={3500000}
-          detail={null}
-        />
-        <ProductCard
-          img={image}
-          title="Syltherine"
-          description="example"
-          price={3500000}
-          detail={30}
-        />
+        {ProductList.map((i: any) => (
+          <ProductCard
+            img={i.image}
+            title={i.title}
+            description={i.description}
+            price={i.price}
+            detail={i.detail}
+          />
+        ))}
       </div>
       <div>
         <PageButton value="Prev" />
