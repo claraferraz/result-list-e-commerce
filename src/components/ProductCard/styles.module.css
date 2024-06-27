@@ -1,7 +1,9 @@
 .wrapper {
     position: relative;
     background-color: var(--light-bg);
-    height: 446px;
+    max-height: 446px;
+    max-width: 285px;
+
 }
 
 .circle {
