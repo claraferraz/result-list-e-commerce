@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import { ProductCard } from "../ProductCard/ProductCard";
 import image from "../../assets/image-1.png";
 import filterIcon from "../../assets/system-uicons_filtering.svg";
+import { PageButton } from "../PageButton/PageButton";
 
 export const ProductSection = () => {
   return (
@@ -57,6 +58,12 @@ export const ProductSection = () => {
           price={3500000}
           detail={30}
         />
+      </div>
+      <div>
+        <PageButton value="Prev" />
+        <PageButton value={1} />
+        <PageButton value={2} />
+        <PageButton value="Next" />
       </div>
     </section>
   );
