@@ -1,7 +1,90 @@
-.display {
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 65px auto;
-    gap: 32px;
+.productSection {
+    width: 100%;
+    margin-bottom: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filterBarBg {
+    background-color: var(--cream-bg);
+    width: 100%;
+}
+
+.filterBarContent {
+    margin: 35px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContent {
+    display: flex;
+    gap: 29px;
+}
+
+.cardsDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 63px auto;
+
+}
+
+.filterBtn {
+    width: 85px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.pageDescription {
+    padding-left: 36px;
+    border-left: 1px solid black;
+}
+
+.resultsNumberInput {
+    display: block;
+    text-align: center;
+}
+
+.resultsNumberInput label {
+    font-size: 20px;
+}
+
+.resultsNumberInput select {
+    background-color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    text-align: center;
+    color: var(--gray-3);
+    appearance: none;
+}
+
+@media screen and (min-width: 768px) {
+    .cardsDisplay {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .resultsNumberInput select {
+        margin-left: 17px
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .cardsDisplay {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .filterBarContent {
+        max-width: 1240px;
+        margin: 35px auto;
+    }
 }

@@ -1,42 +1,63 @@
 import styles from "./styles.module.css";
 import { ProductCard } from "../ProductCard/ProductCard";
 import image from "../../assets/image-1.png";
+import filterIcon from "../../assets/system-uicons_filtering.svg";
 
 export const ProductSection = () => {
   return (
-    <section className={styles.display}>
-      <ProductCard
-        img={image}
-        title="Syltherine"
-        description="example"
-        price={2500000}
-        originalPrice={3500000}
-        detail={30}
-      />
-      <ProductCard
-        img={image}
-        title="Syltherine"
-        description="example"
-        price={2500000}
-        originalPrice={3500000}
-        detail={"New"}
-      />
-      <ProductCard
-        img={image}
-        title="Syltherine"
-        description="example"
-        price={2500000}
-        originalPrice={3500000}
-        detail={null}
-      />
-      <ProductCard
-        img={image}
-        title="Syltherine"
-        description="example"
-        price={2500000}
-        originalPrice={3500000}
-        detail={30}
-      />
+    <section className={styles.productSection}>
+      <div className={styles.filterBarBg}>
+        <div className={styles.filterBarContent}>
+          <div className={styles.leftContent}>
+            <button className={styles.filterBtn}>
+              <img src={filterIcon} alt="filter icon" />
+              Filter
+            </button>
+            <p className={styles.pageDescription}>Showing 1-8 of 32 results</p>
+          </div>
+          <div className={styles.resultsNumberInput}>
+            <label>
+              Show
+              <select name="PageResultQuantity">
+                <option value="8">8</option>
+                <option value="16">16</option>
+                <option value="32">32</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.cardsDisplay}>
+        <ProductCard
+          img={image}
+          title="Syltherine"
+          description="example"
+          price={3500000}
+          detail={30}
+        />
+        <ProductCard
+          img={image}
+          title="Syltherine"
+          description="example"
+          price={3500000}
+          detail={"New"}
+        />
+        <ProductCard
+          img={image}
+          title="Syltherine"
+          description="example"
+          price={3500000}
+          detail={null}
+        />
+        <ProductCard
+          img={image}
+          title="Syltherine"
+          description="example"
+          price={3500000}
+          detail={30}
+        />
+      </div>
     </section>
   );
 };
