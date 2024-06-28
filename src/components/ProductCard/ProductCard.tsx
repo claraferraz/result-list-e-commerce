@@ -1,6 +1,18 @@
 import styles from "./styles.module.css";
 import { ProductCardHover } from "./ProductCardHover";
 import { ProductDetail } from "./ProductDetail";
+import { Product } from "../../productList";
+
+export function calculatePrice(
+  price: Product["price"],
+  detail: Product["detail"]
+): number {
+  if (typeof detail !== "number") {
+    return price;
+  }
+
+  return (1 - detail / 100) * price;
+}
 
 type Props = {
   img: string;
@@ -23,8 +35,7 @@ export const ProductCard = ({
   if (typeof detail != "number") {
     originalPriceP = styles.hide;
   }
-  const calculatedPrice =
-    typeof detail === "number" ? (1 - detail / 100) * price : price;
+  const calculatedPrice = calculatePrice(price, detail);
 
   return (
     <div className={styles.wrapper}>
