@@ -8,22 +8,27 @@ interface Props {
 }
 
 export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
-  const maxBtn = 5;
-  const maxLeft = (maxBtn - 1) / 2;
   const pagesAmount = Math.ceil(total / numPerPage);
 
+  const minPageToDisplay = page > 2 ? page - 2 : 1;
+  const maxPageToDisplay =
+    minPageToDisplay + 2 > pagesAmount ? pagesAmount : minPageToDisplay + 2;
+
   const buttonsList: number[] = [];
-  for (let i = 1; i <= pagesAmount; i++) {
+  for (let i = minPageToDisplay; i <= maxPageToDisplay; i++) {
     buttonsList.push(i);
   }
 
-  /*let width = "";
-  if (typeof value === "string") {
-    width = styles.str;
-  }*/
-
   return (
     <>
+      {page > 1 && (
+        <button
+          className={`${styles.button} ${styles.str}`}
+          onClick={() => onClick(page - 1)}
+        >
+          Prev
+        </button>
+      )}
       {buttonsList.map((i) => (
         <button
           className={`${styles.button} ${i === page ? styles.active : ""}`}
@@ -32,6 +37,14 @@ export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
           {i}
         </button>
       ))}
+      {page < pagesAmount && (
+        <button
+          className={`${styles.button} ${styles.str}`}
+          onClick={() => onClick(page + 1)}
+        >
+          Next
+        </button>
+      )}
     </>
   );
 };
