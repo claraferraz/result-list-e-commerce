@@ -1,15 +1,23 @@
 import styles from "./styles.module.css";
-import { PageButton } from "../PageButton/PageButton";
-import { Children, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { ProductList } from "../../productList";
 import { FilterInput } from "../FilterInput/FilterInput";
 import { ProductDisplay } from "../ProductDisplay/ProductDisplay";
+import { PageButton } from "../PageButton/PageButton";
 
 export const ProductSection = () => {
+  const total = ProductList.length;
   const [page, setPage] = useState(1);
   const [numPerPage, setNumPerPage] = useState(8);
-  const [total, setTotal] = useState(ProductList.length);
-  const current = page;
+  const [currentItem, setCurrentItem] = useState(0);
+
+  function handleNextPage(value: number) {
+    setPage(value);
+    setCurrentItem((value - 1) * numPerPage);
+    if (currentItem > total - numPerPage) {
+      return;
+    }
+  }
 
   return (
     <section className={styles.productSection}>
@@ -18,7 +26,8 @@ export const ProductSection = () => {
           <div className={styles.leftContent}>
             <FilterInput />
             <p className={styles.pageDescription}>
-              Showing {current}-{current + numPerPage - 1} of {total} results
+              Showing {currentItem + 1}-{currentItem + numPerPage} of {total}{" "}
+              results
             </p>
           </div>
           <div className={styles.resultsNumberInput}>
@@ -39,14 +48,16 @@ export const ProductSection = () => {
       </div>
       <ProductDisplay
         list={ProductList}
-        currentPage={current}
+        currentPage={page}
         numPerPage={numPerPage}
       />
       <div>
-        <PageButton value="Prev" />
-        <PageButton value={1} />
-        <PageButton value={2} />
-        <PageButton value="Next" />
+        <PageButton
+          total={total}
+          numPerPage={numPerPage}
+          page={page}
+          onClick={handleNextPage}
+        />
       </div>
     </section>
   );

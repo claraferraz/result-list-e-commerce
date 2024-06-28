@@ -14,7 +14,8 @@
     width: 95px;
 }
 
-.button:hover {
+.button:hover,
+.button.active {
     background-color: var(--primary);
     color: white
 }
