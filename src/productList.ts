@@ -3,17 +3,16 @@ import image2 from "./assets/image-2.png";
 import image3 from "./assets/image-3.png";
 import image4 from "./assets/image-4.png";
 
-type ProductList = [
-  {
-    id: number;
-    image: string;
-    title: string;
-    description: string;
-    price: number;
-    detail: number | string | null;
-  }
-];
-export const ProductList = [
+type Product = {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  detail: number | string | null;
+};
+
+export const ProductList: Product[] = [
   {
     id: 1,
     image: image1,
