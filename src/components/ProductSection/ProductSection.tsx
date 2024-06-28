@@ -110,7 +110,10 @@ export const ProductSection = () => {
               <select
                 name="PageResultQuantity"
                 value={numPerPage}
-                onChange={(e) => setNumPerPage(parseInt(e.target.value))}
+                onChange={(e) => {
+                  setPage(1);
+                  setNumPerPage(parseInt(e.target.value));
+                }}
               >
                 <option value={8}>8</option>
                 <option value={16}>16</option>
