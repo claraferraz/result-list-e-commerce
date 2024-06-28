@@ -1,24 +1,22 @@
 import styles from "./styles.module.css";
-import filterIcon from "../../assets/system-uicons_filtering.svg";
 import { PageButton } from "../PageButton/PageButton";
 import { useState } from "react";
 import { ProductList } from "../../productList";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { FilterInput } from "../FilterInput/FilterInput";
+import { ProductDisplay } from "../ProductDisplay/ProductDisplay";
 
 export const ProductSection = () => {
   const [page, setPage] = useState(1);
   const [numPerPage, setNumPerPage] = useState(8);
   const [total, setTotal] = useState(32);
   const current = page;
+
   return (
     <section className={styles.productSection}>
       <div className={styles.filterBarBg}>
         <div className={styles.filterBarContent}>
           <div className={styles.leftContent}>
-            <button className={styles.filterBtn}>
-              <img src={filterIcon} alt="filter icon" />
-              Filter
-            </button>
+            <FilterInput />
             <p className={styles.pageDescription}>
               Showing {current}-{current + numPerPage - 1} of {total} results
             </p>
@@ -35,18 +33,7 @@ export const ProductSection = () => {
           </div>
         </div>
       </div>
-
-      <div className={styles.cardsDisplay}>
-        {ProductList.map((i: any) => (
-          <ProductCard
-            img={i.image}
-            title={i.title}
-            description={i.description}
-            price={i.price}
-            detail={i.detail}
-          />
-        ))}
-      </div>
+      <ProductDisplay list={ProductList} />
       <div>
         <PageButton value="Prev" />
         <PageButton value={1} />

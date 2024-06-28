@@ -23,24 +23,6 @@
     gap: 29px;
 }
 
-.cardsDisplay {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin: 63px auto;
-
-}
-
-.filterBtn {
-    width: 85px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-}
-
 .pageDescription {
     padding-left: 36px;
     border-left: 1px solid black;
@@ -67,10 +49,6 @@
 }
 
 @media screen and (min-width: 768px) {
-    .cardsDisplay {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
 
     .resultsNumberInput select {
         margin-left: 17px
