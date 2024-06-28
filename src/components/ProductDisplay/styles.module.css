@@ -1,0 +1,21 @@
+.cardsDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 63px auto;
+
+}
+
+@media screen and (min-width: 768px) {
+    .cardsDisplay {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .cardsDisplay {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
