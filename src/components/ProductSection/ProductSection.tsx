@@ -1,12 +1,84 @@
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { ProductList } from "../../productList";
-import { FilterInput } from "../FilterInput/FilterInput";
+import { ProductList, Product } from "../../productList";
+import { FilterInput, OrderOptions } from "../FilterInput/FilterInput";
 import { ProductDisplay } from "../ProductDisplay/ProductDisplay";
 import { PageButton } from "../PageButton/PageButton";
+import { calculatePrice } from "../ProductCard/ProductCard";
+
+const orderByAz = (a: Product, b: Product) => {
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (a.title > b.title) {
+    return 1;
+  }
+  return 0;
+};
+
+const orderByZa = (a: Product, b: Product) => {
+  if (a.title < b.title) {
+    return 1;
+  }
+  if (a.title > b.title) {
+    return -1;
+  }
+  return 0;
+};
+
+const orderByPriceAsc = (a: Product, b: Product) => {
+  const priceA = calculatePrice(a.price, a.detail);
+  const priceB = calculatePrice(b.price, b.detail);
+
+  if (priceA < priceB) {
+    return -1;
+  }
+
+  if (priceA > priceB) {
+    return 1;
+  }
+
+  return 0;
+};
+
+const orderByPriceDesc = (a: Product, b: Product) => {
+  const priceA = calculatePrice(a.price, a.detail);
+  const priceB = calculatePrice(b.price, b.detail);
+
+  if (priceA < priceB) {
+    return 1;
+  }
+
+  if (priceA > priceB) {
+    return -1;
+  }
+
+  return 0;
+};
+
+const orderProducts = (products: Product[], order: OrderOptions): Product[] => {
+  switch (order) {
+    case OrderOptions.AlphaAsc:
+      return products.toSorted(orderByAz);
+
+    case OrderOptions.AlphaDesc:
+      return products.toSorted(orderByZa);
+
+    case OrderOptions.PriceAsc:
+      return products.toSorted(orderByPriceAsc);
+
+    case OrderOptions.PriceDesc:
+      return products.toSorted(orderByPriceDesc);
+
+    case OrderOptions.None:
+      return products;
+  }
+};
 
 export const ProductSection = () => {
   const total = ProductList.length;
+
+  const [order, setOrder] = useState<OrderOptions>(OrderOptions.None);
   const [page, setPage] = useState(1);
   const [numPerPage, setNumPerPage] = useState(8);
   const [currentItem, setCurrentItem] = useState(0);
@@ -19,12 +91,14 @@ export const ProductSection = () => {
     }
   }
 
+  const orderedList = orderProducts(ProductList, order);
+
   return (
     <section className={styles.productSection}>
       <div className={styles.filterBarBg}>
         <div className={styles.filterBarContent}>
           <div className={styles.leftContent}>
-            <FilterInput />
+            <FilterInput setOrder={setOrder} />
             <p className={styles.pageDescription}>
               Showing {currentItem + 1}-{currentItem + numPerPage} of {total}{" "}
               results
@@ -47,7 +121,7 @@ export const ProductSection = () => {
         </div>
       </div>
       <ProductDisplay
-        list={ProductList}
+        list={orderedList}
         currentPage={page}
         numPerPage={numPerPage}
       />
