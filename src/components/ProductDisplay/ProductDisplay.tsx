@@ -10,12 +10,16 @@ type Props = {
     price: number;
     detail: number | string | null;
   }[];
+  numPerPage: number;
+  currentPage: number;
 };
 
-export const ProductDisplay = ({ list }: Props) => {
+export const ProductDisplay = ({ list, numPerPage, currentPage }: Props) => {
+  const slicedList = list.slice(currentPage - 1, currentPage + numPerPage - 1);
+
   return (
     <div className={styles.cardsDisplay}>
-      {list.map((i: any) => (
+      {slicedList.map((i: any) => (
         <ProductCard
           img={i.image}
           title={i.title}
