@@ -7,12 +7,27 @@ interface Props {
   onClick: (newPage: number) => void;
 }
 
+const getMinPageToDisplay = (page: number, pagesAmount: number) => {
+  // current page is the first page
+  if (page == 1) {
+    return 1;
+  }
+
+  // current page is greater than 1 and less than the max
+  if (page < pagesAmount) {
+    return page - 1;
+  }
+
+  // current page is the last one
+  return page - 2;
+};
+
 export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
   const pagesAmount = Math.ceil(total / numPerPage);
 
-  const minPageToDisplay = page > 2 ? page - 2 : 1;
-  const maxPageToDisplay =
-    minPageToDisplay + 2 > pagesAmount ? pagesAmount : minPageToDisplay + 2;
+  const minPageToDisplay = getMinPageToDisplay(page, pagesAmount);
+  // max page to be displayed cannot be greater than the maximum number of pages
+  const maxPageToDisplay = Math.min(minPageToDisplay + 2, pagesAmount);
 
   const buttonsList: number[] = [];
   for (let i = minPageToDisplay; i <= maxPageToDisplay; i++) {
