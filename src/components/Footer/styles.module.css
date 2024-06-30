@@ -9,11 +9,12 @@
     font-weight: 500;
 }
 
-.title, .sectionTitle {
+.title,
+.sectionTitle {
     margin: 0 0 50px 0;
 }
 
-.footerWrapper { 
+.footerWrapper {
     max-width: 1240px;
     margin: 0 auto;
     padding: 48px 30px 38px 30px;
@@ -51,6 +52,11 @@
     font-size: 16px;
 }
 
+.footerLink a:hover {
+    color: var(--primary);
+    transition: all 0.3s ease-in-out;
+}
+
 .copyright {
     margin-bottom: 0;
 }
@@ -64,7 +70,7 @@
 @media screen and (max-width: 768px) {
     .form {
         display: block;
-    }    
+    }
 
     .form input {
         margin-bottom: 20px;
