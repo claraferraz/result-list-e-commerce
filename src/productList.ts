@@ -16,7 +16,7 @@ export const ProductList: Product[] = [
   {
     id: 1,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine1",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -24,7 +24,7 @@ export const ProductList: Product[] = [
   {
     id: 2,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa1",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -32,7 +32,7 @@ export const ProductList: Product[] = [
   {
     id: 3,
     image: image3,
-    title: "Lolito",
+    title: "Lolito1",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -40,7 +40,7 @@ export const ProductList: Product[] = [
   {
     id: 4,
     image: image4,
-    title: "Respira",
+    title: "Respira1",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -48,7 +48,7 @@ export const ProductList: Product[] = [
   {
     id: 5,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine2",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -56,7 +56,7 @@ export const ProductList: Product[] = [
   {
     id: 6,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa2",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -64,7 +64,7 @@ export const ProductList: Product[] = [
   {
     id: 7,
     image: image3,
-    title: "Lolito",
+    title: "Lolito2",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -72,7 +72,7 @@ export const ProductList: Product[] = [
   {
     id: 8,
     image: image4,
-    title: "Respira",
+    title: "Respira2",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -80,7 +80,7 @@ export const ProductList: Product[] = [
   {
     id: 9,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine3",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -88,7 +88,7 @@ export const ProductList: Product[] = [
   {
     id: 10,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa3",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -96,7 +96,7 @@ export const ProductList: Product[] = [
   {
     id: 11,
     image: image3,
-    title: "Lolito",
+    title: "Lolito3",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -104,7 +104,7 @@ export const ProductList: Product[] = [
   {
     id: 12,
     image: image4,
-    title: "Respira",
+    title: "Respira3",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -112,7 +112,7 @@ export const ProductList: Product[] = [
   {
     id: 13,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine4",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -120,7 +120,7 @@ export const ProductList: Product[] = [
   {
     id: 14,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa4",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -128,7 +128,7 @@ export const ProductList: Product[] = [
   {
     id: 15,
     image: image3,
-    title: "Lolito",
+    title: "Lolito4",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -136,7 +136,7 @@ export const ProductList: Product[] = [
   {
     id: 16,
     image: image4,
-    title: "Respira",
+    title: "Respira4",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -144,7 +144,7 @@ export const ProductList: Product[] = [
   {
     id: 17,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine5",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -152,7 +152,7 @@ export const ProductList: Product[] = [
   {
     id: 18,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa5",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -160,7 +160,7 @@ export const ProductList: Product[] = [
   {
     id: 19,
     image: image3,
-    title: "Lolito",
+    title: "Lolito5",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -168,7 +168,7 @@ export const ProductList: Product[] = [
   {
     id: 20,
     image: image4,
-    title: "Respira",
+    title: "Respira5",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -176,7 +176,7 @@ export const ProductList: Product[] = [
   {
     id: 21,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine6",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -184,7 +184,7 @@ export const ProductList: Product[] = [
   {
     id: 22,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa6",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -192,7 +192,7 @@ export const ProductList: Product[] = [
   {
     id: 23,
     image: image3,
-    title: "Lolito",
+    title: "Lolito6",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -200,7 +200,7 @@ export const ProductList: Product[] = [
   {
     id: 24,
     image: image4,
-    title: "Respira",
+    title: "Respira6",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -208,7 +208,7 @@ export const ProductList: Product[] = [
   {
     id: 25,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine7",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -216,7 +216,7 @@ export const ProductList: Product[] = [
   {
     id: 26,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa7",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -224,7 +224,7 @@ export const ProductList: Product[] = [
   {
     id: 27,
     image: image3,
-    title: "Lolito",
+    title: "Lolito7",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -232,7 +232,7 @@ export const ProductList: Product[] = [
   {
     id: 28,
     image: image4,
-    title: "Respira",
+    title: "Respira7",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",
@@ -240,7 +240,7 @@ export const ProductList: Product[] = [
   {
     id: 29,
     image: image1,
-    title: "Syltherine",
+    title: "Syltherine8",
     description: "Stylish cafe chair",
     price: 3500000,
     detail: 30,
@@ -248,7 +248,7 @@ export const ProductList: Product[] = [
   {
     id: 30,
     image: image2,
-    title: "Leviosa",
+    title: "Leviosa8",
     description: "Stylish cafe chair",
     price: 2500000,
     detail: null,
@@ -256,7 +256,7 @@ export const ProductList: Product[] = [
   {
     id: 31,
     image: image3,
-    title: "Lolito",
+    title: "Lolito8",
     description: "Luxury big sofa",
     price: 7000000,
     detail: 50,
@@ -264,7 +264,7 @@ export const ProductList: Product[] = [
   {
     id: 32,
     image: image4,
-    title: "Respira",
+    title: "Respira8",
     description: "Outdoor bar table and stool",
     price: 500000,
     detail: "New",

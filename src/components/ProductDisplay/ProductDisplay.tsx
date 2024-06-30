@@ -15,7 +15,8 @@ type Props = {
 };
 
 export const ProductDisplay = ({ list, numPerPage, currentPage }: Props) => {
-  const slicedList = list.slice(currentPage - 1, currentPage + numPerPage - 1);
+  const start = (currentPage - 1) * numPerPage;
+  const slicedList = list.slice(start, start + numPerPage);
 
   return (
     <div className={styles.cardsDisplay}>

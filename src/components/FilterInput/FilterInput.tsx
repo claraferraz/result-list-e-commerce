@@ -16,7 +16,7 @@ type Props = {
 };
 
 export const FilterInput = ({ setOrder, selected }: Props) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className={styles.filterWrapper}>
       <div>
