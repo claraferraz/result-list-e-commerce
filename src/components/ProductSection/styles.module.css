@@ -47,6 +47,13 @@
     text-align: center;
     color: var(--gray-3);
     appearance: none;
+    cursor: pointer;
+}
+
+.resultsNumberInput select:hover {
+    background-color: var(--light-bg);
+    color: var(--gray-1);
+    transition: all 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

@@ -17,5 +17,6 @@
 .button:hover,
 .button.active {
     background-color: var(--primary);
-    color: white
+    color: white;
+    transition: all 0.3s ease-in-out
 }

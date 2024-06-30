@@ -75,7 +75,22 @@
 }
 
 .productHover {
-    display: none;
+    opacity: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(58, 58, 58, 0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: absolute;
+    top: 0;
+}
+
+.wrapper:hover .productHover {
+    opacity: 100%;
+    transition: all 0.4s ease-in-out;
 }
 
 .productHover button {
@@ -92,6 +107,7 @@
 
 .productHover button:hover {
     background-color: var(--light-bg);
+    transition: all 0.3s ease-in-out;
 }
 
 .linksDiv {
@@ -114,18 +130,5 @@
 
 .links:hover {
     filter: drop-shadow(1px 1px 12px white);
-}
-
-.wrapper:hover .productHover {
-    background-color: rgba(58, 58, 58, 0.72);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0
+    transition: all 0.3s ease-in-out;
 }

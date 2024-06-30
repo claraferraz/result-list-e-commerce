@@ -16,6 +16,11 @@
     cursor: pointer
 }
 
+.filterBtn:hover {
+    filter: invert(61%) sepia(8%) saturate(16%) hue-rotate(28deg) brightness(70%) contrast(87%);
+    transition: all 0.3s ease-in-out;
+}
+
 .optionsWrapper {
     display: none;
 }
