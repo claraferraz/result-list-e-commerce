@@ -44,14 +44,18 @@ export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
           Prev
         </button>
       )}
-      {buttonsList.map((i) => (
-        <button
-          className={`${styles.button} ${i === page ? styles.active : ""}`}
-          onClick={() => onClick(i)}
-        >
-          {i}
-        </button>
-      ))}
+      {buttonsList.map((i) =>
+        i > 0 ? (
+          <button
+            className={`${styles.button} ${i === page ? styles.active : ""}`}
+            onClick={() => onClick(i)}
+          >
+            {i}
+          </button>
+        ) : (
+          <></>
+        )
+      )}
       {page < pagesAmount && (
         <button
           className={`${styles.button} ${styles.str}`}
