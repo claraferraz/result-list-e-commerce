@@ -98,7 +98,7 @@ export const ProductSection = () => {
       <div className={styles.filterBarBg}>
         <div className={styles.filterBarContent}>
           <div className={styles.leftContent}>
-            <FilterInput setOrder={setOrder} />
+            <FilterInput setOrder={setOrder} selected={order} />
             <p className={styles.pageDescription}>
               Showing {currentItem + 1}-{currentItem + numPerPage} of {total}{" "}
               results

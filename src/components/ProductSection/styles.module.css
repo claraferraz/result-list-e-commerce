@@ -20,6 +20,7 @@
 
 .leftContent {
     display: flex;
+    align-items: center;
     gap: 29px;
 }
 

@@ -1,3 +1,10 @@
+.filterWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
 .filterBtn {
     width: 85px;
     display: flex;
@@ -6,4 +13,50 @@
     border: none;
     background-color: transparent;
     font-size: 20px;
+    cursor: pointer
+}
+
+.optionsWrapper {
+    display: none;
+}
+
+.optionsWrapper.open {
+    position: absolute;
+    left: 0px;
+    right: -70px;
+    top: 40px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+    padding: 15px 15px 15px 35px;
+    background-color: var(--cream-bg);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+
+.optionsWrapper button {
+    text-align: left;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+}
+
+.optionsWrapper button:hover {
+    color: var(--gray-3)
+}
+
+.optionsWrapper .select::before {
+    position: absolute;
+    top: 33%;
+    left: -20px;
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
 }
