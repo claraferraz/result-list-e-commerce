@@ -81,14 +81,10 @@ export const ProductSection = () => {
   const [order, setOrder] = useState<OrderOptions>(OrderOptions.None);
   const [page, setPage] = useState(1);
   const [numPerPage, setNumPerPage] = useState(8);
-  const [currentItem, setCurrentItem] = useState(0);
+  const currentItem = (page - 1) * numPerPage;
 
   function handleNextPage(value: number) {
     setPage(value);
-    setCurrentItem((value - 1) * numPerPage);
-    if (currentItem > total - numPerPage) {
-      return;
-    }
   }
 
   const orderedList = orderProducts(ProductList, order);
