@@ -10,8 +10,8 @@ export const FooterLinks = ({ title, links }: Props) => {
     <div className={styles.footerLink}>
       <p className={styles.sectionTitle}>{title}</p>
       <ul>
-        {links.map((link) => (
-          <li>
+        {links.map((link, i) => (
+          <li key={i}>
             <a href="#">{link}</a>
           </li>
         ))}

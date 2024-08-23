@@ -1,18 +1,21 @@
 import styles from "./styles.module.css";
 
 type Prop = {
-  detail: number | string | null;
+  isNew: boolean;
+  discount: number;
 };
 
-export const ProductDetail = ({ detail }: Prop) => {
-  let detailColor = "";
-  let detailText = detail;
-  if (typeof detail === "string") {
+export const ProductStamp = ({ isNew, discount }: Prop) => {
+  let detailColor;
+  let detailText;
+
+  if (isNew) {
     detailColor = styles.new;
-  } else if (typeof detail === "number") {
+    detailText = "New";
+  } else if (discount > 0) {
     detailColor = styles.discount;
-    detailText = `-${detail}%`;
-  } else if (!detail) {
+    detailText = `-${discount}%`;
+  } else {
     detailColor = styles.hide;
   }
 

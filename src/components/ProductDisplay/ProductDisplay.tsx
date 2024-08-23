@@ -1,15 +1,9 @@
+import { Product } from "../../productList";
 import { ProductCard } from "../ProductCard/ProductCard";
 import styles from "./styles.module.css";
 
 type Props = {
-  list: {
-    id: number;
-    image: string;
-    title: string;
-    description: string;
-    price: number;
-    detail: number | string | null;
-  }[];
+  list: Product[];
   numPerPage: number;
   currentPage: number;
 };
@@ -22,11 +16,13 @@ export const ProductDisplay = ({ list, numPerPage, currentPage }: Props) => {
     <div className={styles.cardsDisplay}>
       {slicedList.map((i: any) => (
         <ProductCard
-          img={i.image}
+          key={`${i.title}`}
+          img={i.images[0].url}
           title={i.title}
-          description={i.description}
+          subtitle={i.subtitle}
           price={i.price}
-          detail={i.detail}
+          discount={i.discount}
+          isNew={i.new}
         />
       ))}
     </div>

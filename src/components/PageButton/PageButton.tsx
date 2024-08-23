@@ -38,6 +38,7 @@ export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
     <>
       {page > 1 && (
         <button
+          key={"prev"}
           className={`${styles.button} ${styles.str}`}
           onClick={() => onClick(page - 1)}
         >
@@ -47,6 +48,7 @@ export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
       {buttonsList.map((i) =>
         i > 0 ? (
           <button
+            key={`b${i}`}
             className={`${styles.button} ${i === page ? styles.active : ""}`}
             onClick={() => onClick(i)}
           >
@@ -58,6 +60,7 @@ export const PageButton = ({ total, numPerPage, page, onClick }: Props) => {
       )}
       {page < pagesAmount && (
         <button
+          key={"next"}
           className={`${styles.button} ${styles.str}`}
           onClick={() => onClick(page + 1)}
         >
