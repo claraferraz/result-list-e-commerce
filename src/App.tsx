@@ -1,17 +1,9 @@
-import { Navbar } from "./components/Navbar/Navbar";
-import { Header } from "./components/Header/Header";
-import { Footer } from "./components/Footer/Footer";
-import { FeatureSection } from "./components/FeatureSection/FeatureSection";
-import { ProductSection } from "./components/ProductSection/ProductSection";
+import MainRoutes from "./routes/MainRoutes";
 
 export function App() {
   return (
     <div>
-      <Navbar />
-      <Header />
-      <ProductSection />
-      <FeatureSection />
-      <Footer />
+      <MainRoutes />
     </div>
   );
 }
