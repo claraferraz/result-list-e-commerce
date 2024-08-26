@@ -1,0 +1,20 @@
+.section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    max-width: 781.5px;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 45px 0 0 45px;
+}
+
+.form {
+    margin: auto
+}

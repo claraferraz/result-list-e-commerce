@@ -1,0 +1,79 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 404px;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.forgotPassword {
+    display: flex;
+}
+
+.forgotPassword a {
+    margin-left: auto;
+    font-size: 10px;
+}
+
+.input {
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: #D9D9D9;
+
+}
+
+.checkboxLabel input {
+    margin-right: 6px
+}
+
+.checkboxLabel,
+.division {
+    font-size: 9px;
+}
+
+.division {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.division p {
+    position: relative;
+    text-align: center;
+    z-index: 3;
+}
+
+.division div {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 100%;
+    z-index: 0;
+    background-color: #f5f5f5;
+}
+
+.btn {
+    background-color: #3A5B22;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.error {
+    color: var(--red)
+}

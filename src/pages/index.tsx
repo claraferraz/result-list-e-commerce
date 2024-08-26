@@ -21,19 +21,15 @@ export const ShopPage = () => {
 
 export const LoginPage = () => {
   return (
-    <div>
-      <AuthPage>
-        <LoginForm />
-      </AuthPage>
-    </div>
+    <AuthPage>
+      <LoginForm />
+    </AuthPage>
   );
 };
 export const RegisterPage = () => {
   return (
-    <div>
-      <AuthPage>
-        <RegisterForm />
-      </AuthPage>
-    </div>
+    <AuthPage>
+      <RegisterForm />
+    </AuthPage>
   );
 };

@@ -23,10 +23,10 @@ export const Navbar = () => {
       <div className={`${styles.navbar} ${open ? styles.open : ""}`}>
         <ul className={styles.links}>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">Shop</a>
+            <a href="/">Shop</a>
           </li>
           <li>
             <a href="#">About</a>
@@ -38,23 +38,23 @@ export const Navbar = () => {
 
         <ul className={styles.icons}>
           <li>
-            <a href="#">
-              <img src={NavbarProfile} alt="" />
+            <a href="/login">
+              <img src={NavbarProfile} alt="profile-icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={NavbarSearch} alt="" />
+              <img src={NavbarSearch} alt="search icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={NavbarHeart} alt="" />
+              <img src={NavbarHeart} alt="heart icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={NavbarCart} alt="" />
+              <img src={NavbarCart} alt="cart icon" />
             </a>
           </li>
         </ul>
