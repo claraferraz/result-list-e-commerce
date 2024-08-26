@@ -7,10 +7,22 @@ import { Product } from "../../productList";
 
 const api = import.meta.env.VITE_API_URL;
 
-const fetchProducts = async () => {
-  const response = await fetch(`${api}/products`, {
-    method: "GET",
-  });
+const fetchProducts = async (
+  order: OrderOptions,
+  page: number,
+  offset: number
+) => {
+  const response = await fetch(
+    `${api}/products?` +
+      new URLSearchParams({
+        order: order.toString(),
+        page: page.toString(),
+        offset: offset.toString(),
+      }).toString(),
+    {
+      method: "GET",
+    }
+  );
   const data = await response.json();
   return data;
 };
@@ -21,31 +33,29 @@ export const ProductSection = () => {
 
   const [order, setOrder] = useState<OrderOptions>(OrderOptions.None);
   const [page, setPage] = useState(1);
-  const [numPerPage, setNumPerPage] = useState(16);
-  const currentItem = (page - 1) * numPerPage;
+  const [offset, setOffset] = useState(16);
+  const [total, setTotal] = useState(0);
+  const currentItem = (page - 1) * offset;
 
   useEffect(() => {
-    async function fetch() {
+    async function fetch(order: OrderOptions, page: number, offset: number) {
       setIsLoading(true);
-      const data = await fetchProducts();
-      setData(data);
+      const response = await fetchProducts(order, page, offset);
+      setData(response.productList);
       setIsLoading(false);
+      response ? setTotal(response.total) : 0;
     }
-
-    fetch();
-  }, []);
+    fetch(order, page, offset);
+  }, [order, page, offset]);
 
   if (isLoading) {
     console.log("Loading");
   }
 
-  console.log(data);
-
-  const total = data ? data.length : 0;
-
   function handleNextPage(value: number) {
     setPage(value);
   }
+  console.log(page);
 
   return (
     <section className={styles.productSection}>
@@ -58,7 +68,7 @@ export const ProductSection = () => {
               setPage={setPage}
             />
             <p className={styles.pageDescription}>
-              Showing {currentItem + 1}-{currentItem + numPerPage} of {total}{" "}
+              Showing {currentItem + 1}-{currentItem + offset} of {total}{" "}
               results
             </p>
           </div>
@@ -67,31 +77,25 @@ export const ProductSection = () => {
               Show
               <select
                 name="PageResultQuantity"
-                value={numPerPage}
+                value={offset}
                 onChange={(e) => {
                   setPage(1);
-                  setNumPerPage(parseInt(e.target.value));
+                  setOffset(parseInt(e.target.value));
                 }}
               >
                 <option value={8}>8</option>
                 <option value={16}>16</option>
-                <option value={32}>32</option>
+                <option value={24}>24</option>
               </select>
             </label>
           </div>
         </div>
       </div>
-      {data && (
-        <ProductDisplay
-          list={data}
-          currentPage={page}
-          numPerPage={numPerPage}
-        />
-      )}
+      {data && <ProductDisplay list={data} />}
       <div>
         <PageButton
           total={total}
-          numPerPage={numPerPage}
+          numPerPage={offset}
           page={page}
           onClick={handleNextPage}
         />

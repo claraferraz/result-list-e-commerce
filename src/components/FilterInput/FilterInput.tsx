@@ -3,11 +3,11 @@ import filterIcon from "../../assets/system-uicons_filtering.svg";
 import { useState } from "react";
 
 export enum OrderOptions {
-  None,
-  AlphaAsc,
-  AlphaDesc,
-  PriceAsc,
-  PriceDesc,
+  None = "None",
+  AlphaAsc = "AlphaAsc",
+  AlphaDesc = "AlphaDesc",
+  PriceAsc = "PriceAsc",
+  PriceDesc = "PriceDesc",
 }
 
 type Props = {

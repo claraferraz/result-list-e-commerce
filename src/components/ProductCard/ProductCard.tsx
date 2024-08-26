@@ -36,7 +36,6 @@ export const ProductCard = ({
   }
   const p = parseFloat(price);
   const calculatedPrice = calculatePrice(price, discount);
-  console.log(img);
 
   return (
     <div className={styles.wrapper}>
