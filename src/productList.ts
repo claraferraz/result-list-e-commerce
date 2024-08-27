@@ -8,7 +8,8 @@ export type Product = {
   new: boolean;
   category: string;
   images: { url: string }[];
-  details: ProductDetails[];
+  ProductDetails: ProductDetails[];
+  ProductTags: { tags: { name: string } }[];
 };
 
 export type ProductDetails = {

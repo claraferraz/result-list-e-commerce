@@ -7,6 +7,7 @@ import { AuthPage } from "./AuthPage/AuthPage";
 import { LoginForm } from "../components/AuthForms/LoginForm";
 import { RegisterForm } from "../components/AuthForms/RegisterForm";
 import { SingleProductDetail } from "../components/SingleProductDetails/SingleProductDetails";
+import { useParams } from "react-router-dom";
 
 export const ShopPage = () => {
   return (
@@ -37,10 +38,11 @@ export const RegisterPage = () => {
 };
 
 export const SingleProduct = () => {
+  let { productId } = useParams();
   return (
     <div>
       <Navbar />
-      <SingleProductDetail />
+      <SingleProductDetail productId={productId} />
       <Footer />
     </div>
   );

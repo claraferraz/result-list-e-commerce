@@ -12,6 +12,7 @@ export const ProductDisplay = ({ list }: Props) => {
       {list.map((i: any) => (
         <ProductCard
           key={`${i.title}`}
+          id={i.id}
           img={i.images[0].url}
           title={i.title}
           subtitle={i.subtitle}

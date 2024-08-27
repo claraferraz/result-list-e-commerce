@@ -12,6 +12,7 @@ export function calculatePrice(
 }
 
 type Props = {
+  id: number;
   img: string;
   title: string;
   subtitle: string;
@@ -21,6 +22,7 @@ type Props = {
 };
 
 export const ProductCard = ({
+  id,
   img,
   title,
   subtitle,
@@ -51,7 +53,7 @@ export const ProductCard = ({
           <p className={originalPriceP}>Rp {priceDisplay(p)}</p>
         </div>
       </div>
-      <ProductCardHover />
+      <ProductCardHover id={id} />
     </div>
   );
 };
