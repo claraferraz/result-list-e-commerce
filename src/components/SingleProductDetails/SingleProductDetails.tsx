@@ -109,7 +109,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
       value += 1;
     }
     if (operation === "-") {
-      if (value > 0) {
+      if (value > 1) {
         value -= 1;
       }
     }
