@@ -49,13 +49,12 @@ export const ProductSection = () => {
   }, [order, page, offset]);
 
   if (isLoading) {
-    console.log("Loading");
+    return <p>Loading...</p>;
   }
 
   function handleNextPage(value: number) {
     setPage(value);
   }
-  console.log(page);
 
   return (
     <section className={styles.productSection}>
