@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { setToken } from "../../features/auth/authSlice";
+import { useAppDispatch } from "../../store/store";
 
 type Inputs = {
   username: string;
@@ -12,7 +12,7 @@ type Inputs = {
 };
 
 export const RegisterForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const api = import.meta.env.VITE_API_URL;
   const [errorMessage, setErrorMessage] = useState<string>("");
 

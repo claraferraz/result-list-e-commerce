@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./styles.module.css";
 import { useState } from "react";
 import { setToken } from "../../features/auth/authSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store/store";
 
 type Inputs = {
   email: string;
@@ -10,7 +10,7 @@ type Inputs = {
 };
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const api = import.meta.env.VITE_API_URL;
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -40,7 +40,7 @@ export const LoginForm = () => {
       setErrorMessage(data.error);
       throw new Error(`Response status: ${response.status}`);
     }
-    const token = data.token;
+    const token = data.token as string;
     dispatch(setToken(token));
   };
 
