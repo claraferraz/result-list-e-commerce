@@ -1,3 +1,10 @@
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .hide {
     display: none;
 }

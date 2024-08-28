@@ -141,7 +141,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
         <p>Shop</p>
         <p>{product.title}</p>
       </header>
-      <section>
+      <section className={styles.section}>
         <div className={styles.images}>
           <div className={styles.thumbnails}>
             <img
@@ -169,7 +169,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
             <img src={mainImage} alt="" />
           </div>
         </div>
-        <div className="descriptionWrapper">
+        <div className={styles.descriptionWrapper}>
           <div>
             <h1>{product.title}</h1>
             <div className={styles.priceContainer}>

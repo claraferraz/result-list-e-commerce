@@ -1,3 +1,4 @@
+import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import { OrderOptions } from "../FilterInput/FilterInput";
 import { ProductDisplay } from "../ProductDisplay/ProductDisplay";
@@ -51,9 +52,11 @@ export const RelatedProductDisplay = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.wrapper}>
       <ProductDisplay list={data} />
-      <button onClick={handleShowMore}>Show More</button>
+      <button className={styles.btn} onClick={handleShowMore}>
+        Show More
+      </button>
     </div>
   );
 };
