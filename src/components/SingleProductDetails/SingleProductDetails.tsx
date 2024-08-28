@@ -29,7 +29,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
   const [color, setColor] = useState<string>("");
   const [size, setSize] = useState<string>("");
   const [amount, setAmount] = useState<number>(1);
-  const [mainImage, setMainImage] = useState();
+  const [mainImage, setMainImage] = useState("");
 
   if (!productId) {
     navigate("/");
