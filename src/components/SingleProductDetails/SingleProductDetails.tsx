@@ -3,6 +3,9 @@ import { Product, ProductDetails } from "../../productList";
 import { calculatePrice } from "../ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart, selectCartProducts } from "../../features/cart/cartSlice";
+import { useAppSelector } from "../../store/store";
 
 type Props = {
   productId?: string;
@@ -19,13 +22,14 @@ const fetchProduct = async (id: number) => {
 };
 
 export const SingleProductDetail = ({ productId }: Props) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState<Product | null>(null);
   const [details, setDetails] = useState<ProductDetails[] | null>(null);
   const [color, setColor] = useState<string>("");
   const [size, setSize] = useState<string>("");
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number>(1);
 
   if (!productId) {
     navigate("/");
@@ -116,7 +120,18 @@ export const SingleProductDetail = ({ productId }: Props) => {
     setAmount(value);
   };
 
-  const handleAddToCart = () => {};
+  const handleAddToCart = () => {
+    if (!skuDetail) {
+      return;
+    }
+    dispatch(
+      addToCart({
+        product,
+        detailsId: skuDetail.detailId,
+        amount,
+      })
+    );
+  };
 
   return (
     <>
@@ -179,13 +194,14 @@ export const SingleProductDetail = ({ productId }: Props) => {
                 <p>{amount}</p>
                 <button onClick={() => counter("+")}>+</button>
               </div>
-              <button onClick={() => handleAddToCart}>Add to Cart</button>
+              <button onClick={handleAddToCart}>Add to Cart</button>
             </div>
           </div>
           <div>
             <p>SKU: {sku ? sku.join("") : "-"}</p>
             <p>Category: {product.category}</p>
             <p>Tags: {tags.toString().replace(/,/g, ", ")}</p>
+            <p>Share: facebook, linkedin, twitter</p>
           </div>
         </div>
       </section>

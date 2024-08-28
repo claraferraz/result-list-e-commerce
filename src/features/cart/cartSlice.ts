@@ -36,41 +36,38 @@ export const cartSlice = createSlice({
     ) => {
       const { product, detailsId, amount = 1 } = payload;
 
-      state.products.forEach((p) => {
-        if (p.detailsId === detailsId) {
-          p.amount += amount;
-          p.productSubtotal = p.price * p.amount;
-        } else {
-          const discountMultiplier = 1 - product.discount / 100;
-          const price = parseFloat(product.price) * discountMultiplier;
-          const productSubtotal = price * amount;
+      const p = state.products.find((p) => p.detailsId === detailsId);
 
-          state.products.push({
-            productId: product.id,
-            detailsId,
-            amount,
-            image: product.images[0].url,
-            price,
-            title: product.title,
-            productSubtotal,
-          });
-        }
-      });
+      if (p) {
+        p.amount += amount;
+        p.productSubtotal = p.price * p.amount;
+      } else {
+        const discountMultiplier = 1 - product.discount / 100;
+        const price = parseFloat(product.price) * discountMultiplier;
+        const productSubtotal = price * amount;
+
+        state.products.push({
+          productId: product.id,
+          detailsId,
+          amount,
+          image: product.images[0].url,
+          price,
+          title: product.title,
+          productSubtotal,
+        });
+      }
     },
 
     removeFromCart: (state, { payload: detailsId }: PayloadAction<number>) => {
-      state.products.forEach((p) => {
-        if (p.detailsId === detailsId) {
-          if (p.amount > 1) {
-            p.amount -= 1;
-            p.productSubtotal = p.amount * p.price;
-          } else {
-            state.products = state.products.filter(
-              (product) => product.detailsId !== p.detailsId
-            );
-          }
-        }
-      });
+      const p = state.products.find((p) => p.detailsId === detailsId);
+      if (p && p.amount > 1) {
+        p.amount -= 1;
+        p.productSubtotal = p.amount * p.price;
+      } else {
+        state.products = state.products.filter(
+          (product) => product.detailsId !== detailsId
+        );
+      }
     },
 
     removeProduct: (state, { payload: detailsId }: PayloadAction<number>) => {
