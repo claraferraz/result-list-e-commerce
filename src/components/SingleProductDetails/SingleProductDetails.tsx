@@ -29,7 +29,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
   const [color, setColor] = useState<string>("");
   const [size, setSize] = useState<string>("");
   const [amount, setAmount] = useState<number>(1);
-  const [mainImage, setMainImage] = useState(product?.images[0].url);
+  const [mainImage, setMainImage] = useState();
 
   if (!productId) {
     navigate("/");
@@ -44,6 +44,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
       setProduct(response);
       setDetails(response.ProductDetails);
       setIsLoading(false);
+      setMainImage(response.images[0].url);
     }
     fetch();
   }, [productId]);
