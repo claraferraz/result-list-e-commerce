@@ -12,7 +12,7 @@ export const ProductCardHover = ({ id }: Props) => {
 
   return (
     <div className={styles.productHover}>
-      <button onClick={() => navigate(`/${id}`)}>See Details</button>
+      <button onClick={() => navigate(`/product/${id}`)}>See Details</button>
       <div className={styles.linksDiv}>
         <div className={styles.links}>
           <img src={shareIcon} alt="share icon" />

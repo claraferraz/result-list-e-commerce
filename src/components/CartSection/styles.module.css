@@ -1,0 +1,26 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    width: 817px;
+    margin: 30px
+}
+
+.counter {
+    width: 107px;
+    display: flex;
+}
+
+.image {
+    width: 105px;
+    height: 105px;
+    border-radius: 10px;
+    background-color: #B88E2F38;
+}
+
+.row td {
+    padding: 15px 40px;
+}

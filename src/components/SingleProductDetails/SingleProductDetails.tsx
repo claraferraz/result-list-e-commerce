@@ -4,8 +4,7 @@ import { calculatePrice } from "../ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart, selectCartProducts } from "../../features/cart/cartSlice";
-import { useAppSelector } from "../../store/store";
+import { addToCart } from "../../features/cart/cartSlice";
 
 type Props = {
   productId?: string;

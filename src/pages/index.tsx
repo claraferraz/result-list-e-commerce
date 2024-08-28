@@ -8,6 +8,7 @@ import { LoginForm } from "../components/AuthForms/LoginForm";
 import { RegisterForm } from "../components/AuthForms/RegisterForm";
 import { SingleProductDetail } from "../components/SingleProductDetails/SingleProductDetails";
 import { useParams } from "react-router-dom";
+import { CartSection } from "../components/CartSection/CartSection";
 
 export const ShopPage = () => {
   return (
@@ -53,6 +54,7 @@ export const CartPage = () => {
     <div>
       <Navbar />
       <Header page="Cart" />
+      <CartSection />
       <FeatureSection />
       <Footer />
     </div>

@@ -1,8 +1,10 @@
 import styles from "./styles.module.css";
 import ArrowIcon from "../../assets/arrow.svg";
+
 type Props = {
   page: string;
 };
+
 export const Header = ({ page }: Props) => {
   return (
     <div className={styles.background}>

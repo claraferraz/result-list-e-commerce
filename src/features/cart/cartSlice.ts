@@ -15,12 +15,14 @@ type CartProduct = {
 
 export interface CartState {
   products: CartProduct[];
+  popupOpen: boolean;
   //para o back: array de produtos com productId, detailId e amount
   //para o front: imagem1, amount, price, title, subtotal
 }
 
 const initialState: CartState = {
   products: [],
+  popupOpen: false,
 };
 
 //const orderSubtotal = useAppSelector(selectOrderSubtotal);
@@ -56,6 +58,16 @@ export const cartSlice = createSlice({
           productSubtotal,
         });
       }
+      state.popupOpen = true;
+    },
+
+    addAmountToCart: (state, { payload: detailsId }: PayloadAction<number>) => {
+      const p = state.products.find((p) => p.detailsId === detailsId);
+      if (p) {
+        p.amount += 1;
+        p.productSubtotal = p.amount * p.price;
+      }
+      state.popupOpen = true;
     },
 
     removeFromCart: (state, { payload: detailsId }: PayloadAction<number>) => {
@@ -75,14 +87,20 @@ export const cartSlice = createSlice({
         (product) => product.detailsId !== detailsId
       );
     },
+
+    setCartPopup: (state, { payload }: PayloadAction<boolean>) => {
+      state.popupOpen = payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
 export const {
   addToCart,
+  addAmountToCart,
   removeFromCart,
-  removeProduct: clearCart,
+  removeProduct,
+  setCartPopup,
 } = cartSlice.actions;
 
 export const selectCartProducts = (state: RootState) => state.cart.products;
