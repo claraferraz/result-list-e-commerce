@@ -9,6 +9,7 @@ import {
   setOrderId,
 } from "../../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const CartSection = () => {
   const api = import.meta.env.VITE_API_URL;
@@ -94,7 +95,10 @@ export const CartSection = () => {
                   <td>{p.productSubtotal}</td>
                   <td>
                     <button
-                      onClick={() => dispatch(removeProduct(p.detailsId))}
+                      onClick={() => {
+                        dispatch(removeProduct(p.detailsId));
+                        toast.info("product removed");
+                      }}
                     >
                       lixo
                     </button>

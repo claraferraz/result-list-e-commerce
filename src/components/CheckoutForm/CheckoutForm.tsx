@@ -13,7 +13,6 @@ import {
   seleCurrentUser,
 } from "../../features/auth/authSlice";
 import { toast } from "react-toastify";
-import { clear } from "console";
 
 type Inputs = {
   companyName: string;
@@ -37,11 +36,7 @@ export const CheckoutForm = () => {
   const user = useAppSelector(seleCurrentUser);
   const [firstName, ...lastName] = user.username.split(" ");
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   if (!orderId) {
     navigate("/cart");
