@@ -6,14 +6,32 @@ import {
 } from "../../features/cart/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import styles from "./styles.module.css";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  companyName: string;
+  zipCode: string;
+  region: string;
+  address: string;
+  city: string;
+  province: string;
+  addOnAddress: string;
+  information: string;
+};
 
 export const CheckoutForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const api = import.meta.env.VITE_API_URL;
   const products = useAppSelector(selectCartProducts);
   const orderId = useAppSelector(selectCartOrderId);
   const cartSubtotal = useAppSelector(selectCartSubtotal);
   const token = useAppSelector((state) => state.auth.token);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
   if (!orderId) {
     navigate("/cart");
@@ -21,60 +39,89 @@ export const CheckoutForm = () => {
   }
   if (!token) {
     navigate("/login");
+    return;
   }
 
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    const response = await fetch(`${api}/checkout/${orderId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        companyName: formData.companyName,
+        zipCode: formData.zipCode,
+        region: formData.region,
+        address: formData.address,
+        city: formData.city,
+        province: formData.province,
+        addOnAddress: formData.addOnAddress,
+        information: formData.information,
+      }),
+    });
+
+    const data = await response.json();
+    if (data) {
+      console.log(data);
+      navigate("/checkout");
+    }
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+  };
   //enviar os dados de billing e atualizar o pedido com o billing id
   return (
     <section>
-      <form action="" className={styles.form}>
+      <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputsWrapper}>
           <h1>Billing details</h1>
           <div className={styles.namesInputs}>
-            <label htmlFor="">
+            <label>
               First Name
-              <input type="text" name="firstName" />
+              <input type="text" />
             </label>
-            <label htmlFor="">
+            <label>
               Last Name
-              <input type="text" name="lastName" />
+              <input type="text" />
             </label>
           </div>
-          <label htmlFor="">
+          <label>
             Company Name (optional)
-            <input type="text" name="companyName" />
+            <input type="text" {...register("companyName")} />
           </label>
-          <label htmlFor="">
+          <label>
             ZIP code
-            <input type="text" name="zipCode" />
+            <input type="text" {...register("zipCode", { required: true })} />
           </label>
-          <label htmlFor="">
+          <label>
             Country / Region
-            <input type="text" name="region" />
+            <input type="text" {...register("region", { required: true })} />
           </label>
-          <label htmlFor="">
+          <label>
             Street address
-            <input type="text" name="address" />
+            <input type="text" {...register("address", { required: true })} />
           </label>
-          <label htmlFor="">
+          <label>
             Town / City
-            <input type="text" name="city" />
+            <input type="text" {...register("city", { required: true })} />
           </label>
-          <label htmlFor="">
+          <label>
             Province
-            <input type="text" name="province" />
+            <input type="text" {...register("province", { required: true })} />
           </label>
-          <label htmlFor="">
+          <label>
             Add-on address
-            <input type="text" name="addOnAddress" />
+            <input type="text" {...register("addOnAddress")} />
           </label>
-          <label htmlFor="">
+          <label>
             Email address
-            <input type="text" name="email" />
+            <input type="text" />
           </label>
-          <label htmlFor="">
+          <label>
             <input
               type="text"
-              name="information"
+              {...register("information")}
               placeholder="Adicional Information"
             />
           </label>
@@ -99,7 +146,7 @@ export const CheckoutForm = () => {
             <p>Rs.{cartSubtotal}</p>
           </div>
           <div>
-            <label htmlFor="">
+            <label>
               <input type="checkbox" checked />
               Direct Bank Transfer
             </label>
@@ -108,11 +155,11 @@ export const CheckoutForm = () => {
               Order ID as the payment reference. Your order will not be shipped
               until the funds have cleared in our account.
             </p>
-            <label htmlFor="">
+            <label>
               <input type="checkbox" disabled />
               Direct Bank Transfer
             </label>
-            <label htmlFor="">
+            <label>
               <input type="checkbox" disabled />
               Cash On Delivery
             </label>
