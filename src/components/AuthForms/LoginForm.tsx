@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./styles.module.css";
 import { useState } from "react";
-import { setToken } from "../../features/auth/authSlice";
+import { setToken, setUserData } from "../../features/auth/authSlice";
 import { useAppDispatch } from "../../store/store";
 
 type Inputs = {
@@ -42,6 +42,28 @@ export const LoginForm = () => {
     }
     const token = data.token as string;
     dispatch(setToken(token));
+    setUser(token);
+  };
+
+  const setUser = async (token: string) => {
+    const response = await fetch(`${api}/users/profile`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    if (!data) {
+      throw new Error("error getting user from server");
+    }
+    dispatch(
+      setUserData({
+        user: {
+          username: data.username,
+          email: data.email,
+        },
+      })
+    );
   };
 
   return (

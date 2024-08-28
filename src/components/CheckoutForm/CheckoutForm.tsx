@@ -7,6 +7,10 @@ import {
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import styles from "./styles.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  selectCurrentToken,
+  seleCurrentUser,
+} from "../../features/auth/authSlice";
 
 type Inputs = {
   companyName: string;
@@ -26,7 +30,10 @@ export const CheckoutForm = () => {
   const products = useAppSelector(selectCartProducts);
   const orderId = useAppSelector(selectCartOrderId);
   const cartSubtotal = useAppSelector(selectCartSubtotal);
-  const token = useAppSelector((state) => state.auth.token);
+  const token = useAppSelector(selectCurrentToken);
+  const user = useAppSelector(seleCurrentUser);
+  const [firstName, ...lastName] = user.username.split(" ");
+
   const {
     register,
     handleSubmit,
@@ -70,7 +77,7 @@ export const CheckoutForm = () => {
       throw new Error(`Response status: ${response.status}`);
     }
   };
-  //enviar os dados de billing e atualizar o pedido com o billing id
+
   return (
     <section>
       <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -79,11 +86,11 @@ export const CheckoutForm = () => {
           <div className={styles.namesInputs}>
             <label>
               First Name
-              <input type="text" />
+              <input type="text" value={firstName} disabled />
             </label>
             <label>
               Last Name
-              <input type="text" />
+              <input type="text" value={lastName.join(" ")} disabled />
             </label>
           </div>
           <label>
@@ -116,7 +123,7 @@ export const CheckoutForm = () => {
           </label>
           <label>
             Email address
-            <input type="text" />
+            <input type="text" value={user.email} disabled />
           </label>
           <label>
             <input
