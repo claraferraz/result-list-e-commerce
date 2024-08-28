@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import { useState } from "react";
 import { setToken, setUserData } from "../../features/auth/authSlice";
 import { useAppDispatch } from "../../store/store";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   email: string;
@@ -10,6 +12,7 @@ type Inputs = {
 };
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const api = import.meta.env.VITE_API_URL;
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -38,11 +41,13 @@ export const LoginForm = () => {
         return;
       }
       setErrorMessage(data.error);
-      throw new Error(`Response status: ${response.status}`);
+    } else {
+      const token = data.token as string;
+      dispatch(setToken(token));
+      setUser(token);
+      toast.success("Login successful");
+      navigate("/");
     }
-    const token = data.token as string;
-    dispatch(setToken(token));
-    setUser(token);
   };
 
   const setUser = async (token: string) => {

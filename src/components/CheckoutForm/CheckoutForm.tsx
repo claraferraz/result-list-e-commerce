@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {
+  clearCart,
   selectCartOrderId,
   selectCartProducts,
   selectCartSubtotal,
@@ -11,6 +12,8 @@ import {
   selectCurrentToken,
   seleCurrentUser,
 } from "../../features/auth/authSlice";
+import { toast } from "react-toastify";
+import { clear } from "console";
 
 type Inputs = {
   companyName: string;
@@ -70,11 +73,12 @@ export const CheckoutForm = () => {
 
     const data = await response.json();
     if (data) {
-      console.log(data);
-      navigate("/checkout");
+      toast.success("Order placed successfully");
+      dispatch(clearCart());
+      navigate("/");
     }
     if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
+      toast.error(response.status);
     }
   };
 

@@ -94,6 +94,11 @@ export const cartSlice = createSlice({
     setOrderId: (state, { payload }: PayloadAction<string>) => {
       state.orderId = payload;
     },
+    clearCart: (state) => {
+      state.products = [];
+      state.popupOpen = false;
+      state.orderId = "";
+    },
   },
 });
 
@@ -105,6 +110,7 @@ export const {
   removeProduct,
   setCartPopup,
   setOrderId,
+  clearCart,
 } = cartSlice.actions;
 
 export const selectCartProducts = (state: RootState) => state.cart.products;

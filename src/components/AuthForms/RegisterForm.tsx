@@ -3,6 +3,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { setToken, setUserData } from "../../features/auth/authSlice";
 import { useAppDispatch } from "../../store/store";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   username: string;
@@ -12,6 +14,7 @@ type Inputs = {
 };
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const api = import.meta.env.VITE_API_URL;
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -44,11 +47,13 @@ export const RegisterForm = () => {
         }
         setErrorMessage(data.error);
         throw new Error(`Response status: ${response.status}`);
+      } else {
+        const token = data.token;
+        dispatch(setToken(token));
+        setUser(token);
+        toast.success("User registered successfully!");
+        navigate("/");
       }
-      const token = data.token;
-      console.log(token);
-      dispatch(setToken(token));
-      setUser(token);
     }
   };
 
@@ -126,7 +131,7 @@ export const RegisterForm = () => {
         </label>
 
         <button type="submit" className={styles.btn}>
-          Login
+          Signup
         </button>
       </form>
 
