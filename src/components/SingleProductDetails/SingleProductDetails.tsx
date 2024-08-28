@@ -136,7 +136,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <p>Home</p>
         <p>Shop</p>
         <p>{product.title}</p>

@@ -5,6 +5,15 @@
     margin: 0 auto;
 }
 
+.header {
+    background-color: #F9F1E7;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 0 100px;
+    gap: 14px
+}
+
 .hide {
     display: none;
 }
