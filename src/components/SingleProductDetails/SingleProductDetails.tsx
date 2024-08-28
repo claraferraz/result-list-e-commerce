@@ -160,6 +160,18 @@ export const SingleProductDetail = ({ productId }: Props) => {
             <div>
               <p>Size</p>
               {filterDetails().sizes.map((s, i) => {
+                if (i === 0) {
+                  return (
+                    <button
+                      disabled={!availableSizes.includes(s)}
+                      key={i}
+                      value={s}
+                      onClick={() => setSize(s)}
+                    >
+                      {s}
+                    </button>
+                  );
+                }
                 return (
                   <button
                     disabled={!availableSizes.includes(s)}

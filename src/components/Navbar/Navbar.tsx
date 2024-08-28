@@ -1,14 +1,15 @@
 import Logo from "../../assets/logo.svg";
 import NavbarCart from "../../assets/navbar-cart.svg";
-import NavbarHeart from "../../assets/navbar-heart.svg";
+import NavbarLogout from "../../assets/navbarLogout.png";
 import NavbarProfile from "../../assets/navbar-profile.svg";
-import NavbarSearch from "../../assets/navbar-search.svg";
 import { HamburguerMenu } from "../HamburguerMenu/HamburguerMenu";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { setCartPopup } from "../../features/cart/cartSlice";
 import { CartPopup } from "../CartPopup/CartPopup";
+import { logout } from "../../features/auth/authSlice";
+import { toast } from "react-toastify";
 
 export const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -49,13 +50,14 @@ export const Navbar = () => {
               </a>
             </li>
             <li>
-              <a href="#">
-                <img src={NavbarSearch} alt="search icon" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src={NavbarHeart} alt="heart icon" />
+              <a
+                href="#"
+                onClick={() => {
+                  dispatch(logout());
+                  toast.info("User logged out");
+                }}
+              >
+                <img src={NavbarLogout} alt="search icon" />
               </a>
             </li>
             <li>
