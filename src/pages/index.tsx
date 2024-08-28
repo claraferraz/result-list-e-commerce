@@ -10,6 +10,7 @@ import { SingleProductDetail } from "../components/SingleProductDetails/SinglePr
 import { useParams } from "react-router-dom";
 import { CartSection } from "../components/CartSection/CartSection";
 import { CheckoutForm } from "../components/CheckoutForm/CheckoutForm";
+import { RelatedProductDisplay } from "../components/RelatedProductsDisplay/RelatedProductsDisplay";
 
 export const ShopPage = () => {
   return (
@@ -45,6 +46,7 @@ export const SingleProduct = () => {
     <div>
       <Navbar />
       <SingleProductDetail productId={productId} />
+      <RelatedProductDisplay />
       <Footer />
     </div>
   );
