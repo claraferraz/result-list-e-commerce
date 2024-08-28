@@ -29,6 +29,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
   const [color, setColor] = useState<string>("");
   const [size, setSize] = useState<string>("");
   const [amount, setAmount] = useState<number>(1);
+  const [mainImage, setMainImage] = useState(product?.images[0].url);
 
   if (!productId) {
     navigate("/");
@@ -140,11 +141,32 @@ export const SingleProductDetail = ({ productId }: Props) => {
         <p>{product.title}</p>
       </header>
       <section>
-        <div className="images">
-          <img src={product.images[0].url} alt="" />
-          <img src={product.images[1].url} alt="" />
-          <img src={product.images[2].url} alt="" />
-          <img src={product.images[3].url} alt="" />
+        <div className={styles.images}>
+          <div className={styles.thumbnails}>
+            <img
+              src={product.images[0].url}
+              alt=""
+              onClick={() => setMainImage(product.images[0].url)}
+            />
+            <img
+              src={product.images[1].url}
+              alt=""
+              onClick={() => setMainImage(product.images[1].url)}
+            />
+            <img
+              src={product.images[2].url}
+              alt=""
+              onClick={() => setMainImage(product.images[2].url)}
+            />
+            <img
+              src={product.images[3].url}
+              alt=""
+              onClick={() => setMainImage(product.images[3].url)}
+            />
+          </div>
+          <div className={styles.mainImage}>
+            <img src={mainImage} alt="" />
+          </div>
         </div>
         <div className="descriptionWrapper">
           <div>
