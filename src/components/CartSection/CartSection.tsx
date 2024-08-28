@@ -100,7 +100,7 @@ export const CartSection = () => {
                         toast.info("product removed");
                       }}
                     >
-                      lixo
+                      remove
                     </button>
                   </td>
                 </tr>
