@@ -6,6 +6,7 @@ import {
   removeProduct,
   selectCartProducts,
   selectCartSubtotal,
+  setOrderId,
 } from "../../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -46,6 +47,7 @@ export const CartSection = () => {
       const data = await response.json();
       if (data) {
         navigate("/checkout");
+        dispatch(setOrderId(data.id));
       }
     } catch {
       throw new Error("deu ruim aqui");

@@ -5,6 +5,7 @@ import {
   selectCartProducts,
   selectCartSubtotal,
   setCartPopup,
+  setOrderId,
 } from "../../features/cart/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 
@@ -43,6 +44,7 @@ export const CartPopup = () => {
       const data = await response.json();
       if (data) {
         navigate("/checkout");
+        dispatch(setOrderId(data.id));
       }
     } catch {
       throw new Error("deu ruim aqui");

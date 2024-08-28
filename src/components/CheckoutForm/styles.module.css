@@ -1,0 +1,46 @@
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 150px;
+    justify-content: center;
+    margin: 100px 175px
+}
+
+.inputsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 36px
+}
+
+.inputsWrapper label input {
+    margin: 22px 0;
+    display: block;
+    height: 75px;
+    width: 453px;
+    border-radius: 10px;
+    border: 1px solid black
+}
+
+.namesInputs {
+    display: flex;
+    gap: 31px
+}
+
+.namesInputs label input {
+    width: 211px;
+}
+
+.order {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.checkoutBtn {
+    width: 318px;
+    height: 64px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@ import { RegisterForm } from "../components/AuthForms/RegisterForm";
 import { SingleProductDetail } from "../components/SingleProductDetails/SingleProductDetails";
 import { useParams } from "react-router-dom";
 import { CartSection } from "../components/CartSection/CartSection";
+import { CheckoutForm } from "../components/CheckoutForm/CheckoutForm";
 
 export const ShopPage = () => {
   return (
@@ -66,6 +67,7 @@ export const CheckoutPage = () => {
     <div>
       <Navbar />
       <Header page="Checkout" />
+      <CheckoutForm />
       <FeatureSection />
       <Footer />
     </div>

@@ -16,13 +16,13 @@ type CartProduct = {
 export interface CartState {
   products: CartProduct[];
   popupOpen: boolean;
-  //para o back: array de produtos com productId, detailId e amount
-  //para o front: imagem1, amount, price, title, subtotal
+  orderId: string;
 }
 
 const initialState: CartState = {
   products: [],
   popupOpen: false,
+  orderId: "",
 };
 
 //const orderSubtotal = useAppSelector(selectOrderSubtotal);
@@ -91,6 +91,9 @@ export const cartSlice = createSlice({
     setCartPopup: (state, { payload }: PayloadAction<boolean>) => {
       state.popupOpen = payload;
     },
+    setOrderId: (state, { payload }: PayloadAction<string>) => {
+      state.orderId = payload;
+    },
   },
 });
 
@@ -101,9 +104,12 @@ export const {
   removeFromCart,
   removeProduct,
   setCartPopup,
+  setOrderId,
 } = cartSlice.actions;
 
 export const selectCartProducts = (state: RootState) => state.cart.products;
+
+export const selectCartOrderId = (state: RootState) => state.cart.orderId;
 
 export const selectCartSubtotal = ({ cart }: RootState) =>
   cart.products.reduce((sum, product) => sum + product.productSubtotal, 0);
