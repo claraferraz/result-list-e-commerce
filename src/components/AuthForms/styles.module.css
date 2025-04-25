@@ -73,7 +73,40 @@
     font-weight: 700;
     cursor: pointer;
 }
+.btn:hover {
+    background-color: #3a5b22e5;
+}
+.btn img {
+    width: 24px;
+    height: 24px;
+}
 
 .error {
     color: var(--red)
+}
+.socialWrapper {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+    justify-content: center;
+}
+.socialWrapper button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--muted, #D9D9D9);
+    background-color: transparent;
+}
+.socialWrapper button:hover {
+    background-color: whitesmoke;
+}
+.registerLink {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+}
+.registerLink span {
+    margin: 5px;
 }
