@@ -80,6 +80,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
         sizes.push(d.size);
       }
     });
+    console.log(colors, sizes)
     return {
       colors: colors,
       sizes: sizes,
@@ -144,26 +145,17 @@ export const SingleProductDetail = ({ productId }: Props) => {
       <section className={styles.section}>
         <div className={styles.images}>
           <div className={styles.thumbnails}>
-            <img
-              src={product.images[0].url}
-              alt=""
-              onClick={() => setMainImage(product.images[0].url)}
-            />
-            <img
-              src={product.images[1].url}
-              alt=""
-              onClick={() => setMainImage(product.images[1].url)}
-            />
-            <img
-              src={product.images[2].url}
-              alt=""
-              onClick={() => setMainImage(product.images[2].url)}
-            />
-            <img
-              src={product.images[3].url}
-              alt=""
-              onClick={() => setMainImage(product.images[3].url)}
-            />
+          {product.images.map((img, i) => {
+              return (
+                <img
+                  src={img.url}
+                  alt=""
+                  key={i}
+                  onClick={() => setMainImage(img.url)}
+                />
+              );
+            })}
+            
           </div>
           <div className={styles.mainImage}>
             <img src={mainImage} alt="" />
