@@ -4,17 +4,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Poppins;
+    height: 100vh;
 }
 
 .image {
-    max-width: 781.5px;
-}
-
-.image img {
-    width: 100%;
+    width: 50%;
+    height: 100%;
+    background-image: url("https://furniro2025.s3.sa-east-1.amazonaws.com/assets/login.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right;
     border-radius: 45px 0 0 45px;
 }
 
 .form {
     margin: auto
+}
+
+@media screen and (max-width: 900px) {
+    .image {
+        display: none;
+    }
+    
 }
