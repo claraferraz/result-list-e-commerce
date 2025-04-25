@@ -120,8 +120,12 @@ export const LoginForm = () => {
         <div></div>
       </div>
 
-      <button className={styles.socialBtn}>Sign in with Google</button>
-      <button className={styles.socialBtn}>Sign in with Apple</button>
+      <button className={styles.socialBtn}>
+        <img src="src\assets\google.svg" alt="" />
+        Sign in with Google</button>
+      <button className={styles.socialBtn}>
+      <img src="src\assets\apple.svg" alt="" />
+      Sign in with Apple</button>
 
       <p className={styles.registerLink}>
         Don't have an account?
