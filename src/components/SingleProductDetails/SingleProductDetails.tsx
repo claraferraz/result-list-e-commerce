@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
+import Twitter from "../../assets/twitter.svg"
+import Facebook from "../../assets/facebook.svg"
+import Linkedin from "../../assets/linkedin.svg"
 
 type Props = {
   productId?: string;
@@ -219,11 +222,23 @@ export const SingleProductDetail = ({ productId }: Props) => {
               <button className={styles.addToCartBtn} onClick={handleAddToCart}>Add to Cart</button>
             </div>
           </div>
-          <div>
-            <p>SKU: {sku ? sku.join("") : "-"}</p>
-            <p>Category: {product.category}</p>
-            <p>Tags: {tags.toString().replace(/,/g, ", ")}</p>
-            <p>Share: facebook, linkedin, twitter</p>
+          <div className={styles.skuDetail}>
+            <p>SKU</p>
+            <span>:</span>
+            <span>{sku ? sku.join("") : "-"}</span>
+            <p>Category</p>
+            <span>:</span>
+            <span>{product.category}</span>
+            <p>Tags</p>
+            <span>:</span>
+            <span>{tags.toString().replace(/,/g, ", ")}</span>
+            <p>Share</p>
+            <span>:</span>
+            <div>
+              <img src={Facebook} alt="Facebook" />
+              <img src={Linkedin} alt="Linkedin" />
+              <img src={Twitter} alt="Twitter" />
+            </div>
           </div>
         </div>
       </section>
