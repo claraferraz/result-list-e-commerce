@@ -11,7 +11,21 @@
     align-items: center;
     height: 100px;
     padding: 0 100px;
-    gap: 14px
+    gap: 14px;
+    margin-bottom: 42px;
+}
+.header img {
+    height: 20px;
+    width: 20px;
+    margin: 0 20px;
+}
+.pathBreadcrumb {
+    color: #9F9F9F;
+    font-size: 16px;
+}
+.titleBreadcrumb {
+    padding-left: 34px;
+    border-left: 2px solid #9F9F9F;
 }
 
 .hide {
@@ -50,4 +64,31 @@
     width: 100%;
     max-height: 100%;
 
+}
+.sizeBtnWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.sizeBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #F9F1E7;
+    cursor: pointer
+}
+
+.sizeBtn:hover {
+    color: white;
+    background-color: #B88E2F;
+}
+.sizeBtnOutline {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #B88E2F;
+    cursor: pointer
 }

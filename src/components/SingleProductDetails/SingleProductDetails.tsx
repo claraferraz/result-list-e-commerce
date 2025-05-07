@@ -138,10 +138,13 @@ export const SingleProductDetail = ({ productId }: Props) => {
   return (
     <>
       <header className={styles.header}>
-        <p>Home</p>
-        <p>Shop</p>
-        <p>{product.title}</p>
+        <p className={styles.pathBreadcrumb}>Home</p>
+        <img src="src\assets\arrow.svg" alt="arrow right" />
+        <p className={styles.pathBreadcrumb}>Shop</p>
+        <img src="src\assets\arrow.svg" alt="arrow right" />
+        <p className={styles.titleBreadcrumb}>{product.title}</p>
       </header>
+
       <section className={styles.section}>
         <div className={styles.images}>
           <div className={styles.thumbnails}>
@@ -174,36 +177,29 @@ export const SingleProductDetail = ({ productId }: Props) => {
             <p>{product.description}</p>
             <div>
               <p>Size</p>
+              <div className={styles.sizeBtnWrapper}>
+
               {filterDetails().sizes.map((s, i) => {
-                if (i === 0) {
-                  return (
-                    <button
-                      disabled={!availableSizes.includes(s)}
-                      key={i}
-                      value={s}
-                      onClick={() => setSize(s)}
-                    >
-                      {s}
-                    </button>
-                  );
-                }
                 return (
                   <button
-                    disabled={!availableSizes.includes(s)}
-                    key={i}
-                    value={s}
-                    onClick={() => setSize(s)}
+                  className={ size === s ? styles.sizeBtnOutline : styles.sizeBtn}
+                  disabled={!availableSizes.includes(s)}
+                  key={i}
+                  value={s}
+                  onClick={() => setSize(s)}
                   >
                     {s}
                   </button>
                 );
               })}
+              </div>
             </div>
             <div>
               <p>Color</p>
               {filterDetails().colors.map((c, i) => {
                 return (
                   <button
+                  className={styles.colorBtn}
                     disabled={!availableColors.includes(c)}
                     key={i}
                     value={c}
