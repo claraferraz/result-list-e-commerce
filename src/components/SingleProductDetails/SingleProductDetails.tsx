@@ -86,7 +86,6 @@ export const SingleProductDetail = ({ productId }: Props) => {
         sizes.push(d.size);
       }
     });
-    console.log(colors, sizes)
     return {
       colors: colors,
       sizes: sizes,
@@ -143,7 +142,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
 
   return (
     <>
-<BreadCrumb product={product}/>
+      <BreadCrumb product={product}/>
 
       <section className={styles.section}>
         <div className={styles.images}>
@@ -169,16 +168,19 @@ export const SingleProductDetail = ({ productId }: Props) => {
             <h1>{product.title}</h1>
             <div className={styles.priceContainer}>
               <h3>Rp {priceDisplay(calculatedPrice)}</h3>
-              <p className={originalPriceP}>Rp {priceDisplay(pPrice)}</p>
+              {product.discount > 0 &&  
+              <p className={styles.originalPriceP}>Rp {priceDisplay(pPrice)}</p>
+              }
             </div>
-            <p>
-              ⭐⭐⭐⭐⭐ <span>5 Customer Review</span>
+            <p className={styles.review}>
+              ⭐⭐⭐⭐⭐ 
+              <span>5 Customer Review</span>
             </p>
-            <p>{product.description}</p>
-            <div>
+            <p className={styles.descriptionP}>{product.description}</p>
+            
+            <div className={styles.detailChoiceWrapper}>
               <p>Size</p>
               <div className={styles.sizeBtnWrapper}>
-
               {filterDetails().sizes.map((s, i) => {
                 return (
                   <button
@@ -194,18 +196,19 @@ export const SingleProductDetail = ({ productId }: Props) => {
               })}
               </div>
             </div>
-            <div>
+
+            <div className={styles.detailChoiceWrapper}>
               <p>Color</p>
               {filterDetails().colors.map((c, i) => {
                 return (
-                  <button
-                  className={styles.colorBtn}
+                  <button 
+                    style={{ backgroundColor: c}}
+                    className={`${styles.colorBtn} ${c.toLowerCase() === "white" ? styles.white : ''}`}
                     disabled={!availableColors.includes(c)}
                     key={i}
                     value={c}
                     onClick={() => setColor(c)}
                   >
-                    {c}
                   </button>
                 );
               })}

@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 .section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -64,6 +67,7 @@
     height: 500px;
     border-radius: 10px;
     background: #F9F1E7;
+    overflow: hidden;
 }
 
 .mainImage img {
@@ -71,6 +75,47 @@
     max-height: 100%;
 
 }
+.descriptionWrapper div h1 {
+    font-size: 42px;
+    font-weight: 400;
+}
+.priceContainer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #9F9F9F;
+}
+.priceContainer h3 {
+    font-size: 24px;
+    font-weight: 500;
+}
+.originalPriceP {
+    text-decoration: line-through;
+}
+.review {
+    margin: 14px 0;
+}
+.review span {
+    color: #9F9F9F;
+    font-size: 13px;
+    padding: 5px 22px;
+    margin: 0 18px;
+    border-left: 1px solid #9F9F9F;
+}
+.descripionP {
+    font-size: 13px;
+    max-width: 424px;
+}
+
+.detailChoiceWrapper {
+    margin-top: 20px;
+    color: #9F9F9F;
+    font-size: 14px;
+}
+.detailChoiceWrapper p {
+    margin: 12px 0;
+}
+
 .sizeBtnWrapper {
     display: flex;
     align-items: center;
@@ -99,6 +144,18 @@
     background-color: #B88E2F;
     cursor: pointer
 }
+.colorBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.white {
+    border: 1px solid #D9D9D9
+}
+
 
 .addToCartWrapper {
     margin: 32px 0 60px;
@@ -153,9 +210,6 @@
     align-items: center;
     grid-template-columns: 1fr 0.1fr 7fr;
     gap: 12px;
-}
-.skuDetail p {
-    margin: 0
 }
 .skuDetail div {
     display: flex;
