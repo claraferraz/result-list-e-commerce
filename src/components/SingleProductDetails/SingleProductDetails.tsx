@@ -8,6 +8,7 @@ import { addToCart } from "../../features/cart/cartSlice";
 import Twitter from "../../assets/twitter.svg"
 import Facebook from "../../assets/facebook.svg"
 import Linkedin from "../../assets/linkedin.svg"
+import Arrow from "../../assets/arrow.svg"
 
 type Props = {
   productId?: string;
@@ -141,10 +142,10 @@ export const SingleProductDetail = ({ productId }: Props) => {
   return (
     <>
       <header className={styles.header}>
-        <p className={styles.pathBreadcrumb}>Home</p>
-        <img src="src\assets\arrow.svg" alt="arrow right" />
-        <p className={styles.pathBreadcrumb}>Shop</p>
-        <img src="src\assets\arrow.svg" alt="arrow right" />
+        <p className={styles.pathBreadcrumb} onClick={() => navigate("/")}>Home</p>
+        <img src={Arrow} alt="arrow right" />
+        <p className={styles.pathBreadcrumb} onClick={() => navigate("/")}>Shop</p>
+        <img src={Arrow} alt="arrow right" />
         <p className={styles.titleBreadcrumb}>{product.title}</p>
       </header>
 
