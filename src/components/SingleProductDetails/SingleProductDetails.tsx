@@ -1,14 +1,16 @@
 import styles from "./styles.module.css";
+
 import { Product, ProductDetails } from "../../productList";
 import { calculatePrice } from "../ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
+import {BreadCrumb} from "./BreadCrumb";
+
 import Twitter from "../../assets/twitter.svg"
 import Facebook from "../../assets/facebook.svg"
 import Linkedin from "../../assets/linkedin.svg"
-import Arrow from "../../assets/arrow.svg"
 
 type Props = {
   productId?: string;
@@ -141,13 +143,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
 
   return (
     <>
-      <header className={styles.header}>
-        <p className={styles.pathBreadcrumb} onClick={() => navigate("/")}>Home</p>
-        <img src={Arrow} alt="arrow right" />
-        <p className={styles.pathBreadcrumb} onClick={() => navigate("/")}>Shop</p>
-        <img src={Arrow} alt="arrow right" />
-        <p className={styles.titleBreadcrumb}>{product.title}</p>
-      </header>
+<BreadCrumb product={product}/>
 
       <section className={styles.section}>
         <div className={styles.images}>
