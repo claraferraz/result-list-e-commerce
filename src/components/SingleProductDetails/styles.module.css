@@ -92,3 +92,45 @@
     background-color: #B88E2F;
     cursor: pointer
 }
+
+.addToCartWrapper {
+    margin: 32px 0 60px;
+    display: flex;
+    gap: 18px;
+}
+
+.addToCartBtn {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 215px;
+    height: 64px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.addToCartBtn:hover {
+    background-color: whitesmoke;
+}
+
+.counter {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 123px;
+    height: 64px;
+    border-radius: 10px;
+    border: 1px solid #9F9F9F;
+}
+
+.counter button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 20px;
+    cursor: pointer;
+}
+.counter button:hover {
+    color: #B88E2F;
+}

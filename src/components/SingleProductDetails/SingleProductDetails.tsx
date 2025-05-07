@@ -210,13 +210,13 @@ export const SingleProductDetail = ({ productId }: Props) => {
                 );
               })}
             </div>
-            <div>
-              <div>
+            <div className={styles.addToCartWrapper}>
+              <div className={styles.counter}>
                 <button onClick={() => counter("-")}>-</button>
                 <p>{amount}</p>
                 <button onClick={() => counter("+")}>+</button>
               </div>
-              <button onClick={handleAddToCart}>Add to Cart</button>
+              <button className={styles.addToCartBtn} onClick={handleAddToCart}>Add to Cart</button>
             </div>
           </div>
           <div>
