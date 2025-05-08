@@ -32,6 +32,7 @@ export const Footer = () => {
   };
 
   return (
+    <div className={styles.borderTop}>
     <div className={styles.footerWrapper}>
       <div className={styles.footer}>
         <div className={styles.footerAddress}>
@@ -45,12 +46,12 @@ export const Footer = () => {
         <FooterLinks
           title="Links"
           links={["Home", "Shop", "About", "Contact"]}
-        />
+          />
 
         <FooterLinks
           title="Help"
           links={["Payment Options", "Returns", "Privacy Policies"]}
-        />
+          />
 
         <div>
           <p className={styles.sectionTitle}>Newsletter</p>
@@ -61,13 +62,14 @@ export const Footer = () => {
               status={status}
               onChange={(e) => setEmail(e.target.value)}
               statusMessage={statusMessage}
-            />
+              />
             <Button type="submit">Subscribe</Button>
           </form>
         </div>
       </div>
 
       <p className={styles.copyright}>2024 Compass UOL</p>
+    </div>
     </div>
   );
 };
