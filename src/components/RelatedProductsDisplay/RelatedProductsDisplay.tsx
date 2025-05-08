@@ -53,6 +53,7 @@ export const RelatedProductDisplay = () => {
   };
   return (
     <div className={styles.wrapper}>
+      <h1>Related Products</h1>
       <ProductDisplay list={data} />
       <button className={styles.btn} onClick={handleShowMore}>
         Show More
