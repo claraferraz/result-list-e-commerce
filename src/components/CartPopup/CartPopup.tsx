@@ -8,6 +8,7 @@ import {
   setOrderId,
 } from "../../features/cart/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
+import closeCart from "../../assets/closeCart.svg";
 
 export const CartPopup = () => {
   const api = import.meta.env.VITE_API_URL;
@@ -51,10 +52,14 @@ export const CartPopup = () => {
     }
   };
   return (
+    <div className={styles.background}>
+
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <h2>Shopping Cart</h2>
-        <button onClick={() => dispatch(setCartPopup(false))}>X</button>
+        <button className={styles.closeBtn} onClick={() => dispatch(setCartPopup(false))}>
+          <img src={closeCart} alt="close cart" />
+        </button>
       </div>
       <div>
         {products.map((p) => {
@@ -63,14 +68,21 @@ export const CartPopup = () => {
               <div className={styles.image}>
                 <img src={p.image} alt="" />
               </div>
-              <div>
-                <p>{p.title}</p>
+
+              <div className={styles.productInfo}>
+                <p >{p.title}</p>
+                
+                <div className={styles.productPriceWrapper}>
                 <p>
-                  {p.amount} x Rs.{p.price}
+                  {p.amount}
                 </p>
+                <p>x</p>
+                <p className={styles.price}>Rs.{p.price}</p>
+                </div>
               </div>
+
               <div>
-                <button onClick={() => dispatch(removeProduct(p.detailsId))}>
+                <button className={styles.removeBtn} onClick={() => dispatch(removeProduct(p.detailsId))}>
                   x
                 </button>
               </div>
@@ -88,5 +100,6 @@ export const CartPopup = () => {
         <button>Comparison</button>
       </div>
     </div>
+        </div>
   );
 };
