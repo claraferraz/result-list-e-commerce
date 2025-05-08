@@ -61,7 +61,7 @@ export const CartPopup = () => {
           <img src={closeCart} alt="close cart" />
         </button>
       </div>
-      <div>
+      <div className={styles.body}>
         {products.map((p) => {
           return (
             <div className={styles.product}>
@@ -94,7 +94,7 @@ export const CartPopup = () => {
         <p>Subtotal</p>
         <p>Rs.{cartSubtotal}</p>
       </div>
-      <div>
+      <div className={styles.footer}>
         <button onClick={() => navigate("/cart")}>Cart</button>
         <button onClick={handleCheckout}>Checkout</button>
         <button>Comparison</button>
