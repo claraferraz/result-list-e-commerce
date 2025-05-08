@@ -152,9 +152,18 @@
     margin-right: 16px;
     cursor: pointer;
 }
+.colorBtn:disabled {
+    display: none;
+}
+.colorBtnOutline {
+    width: 33px;
+    height: 33px;
+    border: 3px solid #545454;
+}
 .white {
     border: 1px solid #D9D9D9
 }
+
 
 
 .addToCartWrapper {

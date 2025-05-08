@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import {BreadCrumb} from "./BreadCrumb";
+import {colorsRef} from "./colorsRef";
 
 import Twitter from "../../assets/twitter.svg"
 import Facebook from "../../assets/facebook.svg"
@@ -63,10 +64,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
   }
 
   const priceDisplay = (value: number) => value.toLocaleString("pt-BR");
-  let originalPriceP = "";
-  if (product.discount <= 0) {
-    originalPriceP = styles.hide;
-  }
+
   const pPrice = parseFloat(product.price);
   const calculatedPrice = calculatePrice(product.price, product.discount);
 
@@ -140,6 +138,8 @@ export const SingleProductDetail = ({ productId }: Props) => {
     );
   };
 
+  console.log(color)
+
   return (
     <>
       <BreadCrumb product={product}/>
@@ -200,10 +200,11 @@ export const SingleProductDetail = ({ productId }: Props) => {
             <div className={styles.detailChoiceWrapper}>
               <p>Color</p>
               {filterDetails().colors.map((c, i) => {
+                const colorR:string = colorsRef[c.toLowerCase() as keyof typeof colorsRef] || c;
                 return (
                   <button 
-                    style={{ backgroundColor: c}}
-                    className={`${styles.colorBtn} ${c.toLowerCase() === "white" ? styles.white : ''}`}
+                    style={{ backgroundColor: colorR}}
+                    className={`${styles.colorBtn} ${c.toLowerCase() === "white" ? styles.white : ''} ${color === c ? styles.colorBtnOutline : ''}`}
                     disabled={!availableColors.includes(c)}
                     key={i}
                     value={c}
@@ -213,6 +214,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
                 );
               })}
             </div>
+
             <div className={styles.addToCartWrapper}>
               <div className={styles.counter}>
                 <button onClick={() => counter("-")}>-</button>
@@ -222,6 +224,7 @@ export const SingleProductDetail = ({ productId }: Props) => {
               <button className={styles.addToCartBtn} onClick={handleAddToCart}>Add to Cart</button>
             </div>
           </div>
+
           <div className={styles.skuDetail}>
             <p>SKU</p>
             <span>:</span>
