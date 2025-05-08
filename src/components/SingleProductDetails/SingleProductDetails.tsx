@@ -138,8 +138,6 @@ export const SingleProductDetail = ({ productId }: Props) => {
     );
   };
 
-  console.log(color)
-
   return (
     <>
       <BreadCrumb product={product}/>
