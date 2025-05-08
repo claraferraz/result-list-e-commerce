@@ -92,3 +92,17 @@
     background-color: #B88E2F;
 }
 
+.subtotalWrapper {
+    display: grid;
+    grid-template-columns: 2.5fr 3fr;
+    align-items: center;
+    justify-content: space-between;
+    padding: 27px 0;
+    border-bottom: 1px solid #D9D9D9;
+    
+}
+.subtotal {
+    color: #B88E2F;
+    font-weight: 600;
+}
+

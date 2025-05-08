@@ -90,11 +90,11 @@ export const CartPopup = () => {
           );
         })}
       </div>
-      <div>
+      <div className={styles.subtotalWrapper}>
         <p>Subtotal</p>
-        <p>Rs.{cartSubtotal}</p>
+        <p className={styles.subtotal}>Rs.{cartSubtotal}</p>
       </div>
-      <div className={styles.footer}>
+      <div className={styles.checkoutWrapper}>
         <button onClick={() => navigate("/cart")}>Cart</button>
         <button onClick={handleCheckout}>Checkout</button>
         <button>Comparison</button>
