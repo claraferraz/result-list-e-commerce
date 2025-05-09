@@ -1,12 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .section {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 75px 100px;
+}
+.table {
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 50px;
 }
 
-.table {
-    width: 817px;
-    margin: 30px
+.tableHead {
+    background-color: #F9F1E7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    flex-wrap: wrap;
 }
 
 .counter {
@@ -21,6 +35,31 @@
     background-color: #B88E2F38;
 }
 
-.row td {
-    padding: 15px 40px;
+.totalWrapper {
+    background-color: #F9F1E7;
+    width: 30%;
+    max-height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+.totalText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 31px;
+}
+.totalText div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.totalText p {
+    font-weight: 500;
+}
+.total {
+    font-size: 20px;
+    color:#B88E2F;
 }

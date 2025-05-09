@@ -59,28 +59,21 @@ export const CartSection = () => {
   return (
     <section className={styles.section}>
       <div className={styles.table}>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((p) => {
-              return (
-                <tr className={styles.row}>
-                  <td>
-                    <img className={styles.image} src={p.image} alt="" />
-                  </td>
-                  <td>{p.title}</td>
-                  <td>{p.price}</td>
-                  <td className={styles.counter}>
-                    <button
+          <p className={styles.tableHead}></p>
+          <p className={styles.tableHead}>Product</p>
+          <p className={styles.tableHead}>Price</p>
+          <p className={styles.tableHead}>Quantity</p>
+          <p className={styles.tableHead}>Subtotal</p>
+          <p className={styles.tableHead}></p>
+ 
+          {products.map((p) => {
+            return(
+              <>
+               <img className={styles.image} src={p.image} alt="" />
+               <p>{p.title}</p>
+               <p>{p.price}</p>
+               <div className={styles.counter}>
+                <button
                       onClick={() => dispatch(removeFromCart(p.detailsId))}
                     >
                       -
@@ -91,10 +84,9 @@ export const CartSection = () => {
                     >
                       +
                     </button>
-                  </td>
-                  <td>{p.productSubtotal}</td>
-                  <td>
-                    <button
+               </div>
+               {p.productSubtotal}
+               <button
                       onClick={() => {
                         dispatch(removeProduct(p.detailsId));
                         toast.info("product removed");
@@ -102,21 +94,27 @@ export const CartSection = () => {
                     >
                       remove
                     </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              </>
+            )
+          })}
       </div>
-      <div>
+      <div className={styles.totalWrapper}>
         <h1>Cart Totals</h1>
+        <div className={styles.totalText}>
+          <div>
         <p>
-          Subtotal <span>{cartSubtotal}</span>
+          Subtotal 
         </p>
+          <p className={styles.subtotal}>R${cartSubtotal}</p>
+          </div>
+          <div>
+
         <p>
-          Total <span>{cartSubtotal}</span>
+          Total
         </p>
+          <p  className={styles.total}>R${cartSubtotal}</p>
+          </ div>
+        </div>
         <button onClick={handleCheckout}>Checkout</button>
       </div>
     </section>
