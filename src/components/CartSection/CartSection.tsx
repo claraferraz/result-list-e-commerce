@@ -10,6 +10,7 @@ import {
 } from "../../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import trashCan from '../../assets/trash-can.svg'
 
 export const CartSection = () => {
   const api = import.meta.env.VITE_API_URL;
@@ -70,8 +71,8 @@ export const CartSection = () => {
             return(
               <>
                <img className={styles.image} src={p.image} alt="" />
-               <p>{p.title}</p>
-               <p>{p.price}</p>
+               <p className={styles.gray}>{p.title}</p>
+               <p className={styles.gray}>R${p.price.toFixed(2)}</p>
                <div className={styles.counter}>
                 <button
                       onClick={() => dispatch(removeFromCart(p.detailsId))}
@@ -85,14 +86,16 @@ export const CartSection = () => {
                       +
                     </button>
                </div>
-               {p.productSubtotal}
-               <button
+               <p>
+               R${p.productSubtotal.toFixed(2)}
+               </p>
+               <button className={styles.trash}
                       onClick={() => {
                         dispatch(removeProduct(p.detailsId));
                         toast.info("product removed");
                       }}
                     >
-                      remove
+                      <img src={trashCan} alt="trash can" />
                     </button>
               </>
             )
@@ -105,14 +108,14 @@ export const CartSection = () => {
         <p>
           Subtotal 
         </p>
-          <p className={styles.subtotal}>R${cartSubtotal}</p>
+          <p className={styles.subtotal}>R${cartSubtotal.toFixed(2)}</p>
           </div>
           <div>
 
         <p>
           Total
         </p>
-          <p  className={styles.total}>R${cartSubtotal}</p>
+          <p  className={styles.total}>R${cartSubtotal.toFixed(2)}</p>
           </ div>
         </div>
         <button onClick={handleCheckout}>Checkout</button>

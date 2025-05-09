@@ -12,6 +12,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     row-gap: 50px;
+    align-items: center;
 }
 
 .tableHead {
@@ -22,10 +23,31 @@
     height: 55px;
     flex-wrap: wrap;
 }
-
+.gray {
+    color: #9F9F9F
+}
+.table button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    max-height: 47px;
+}
+.trash {
+    max-width: 28px;
+}
 .counter {
     width: 107px;
+    border: 1px solid #9F9F9F;
+    border-radius: 10px;
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50%;
+    font-weight: 500;
+}
+.counter button {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .image {
